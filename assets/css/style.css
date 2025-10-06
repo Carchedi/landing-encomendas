@@ -1,32 +1,160 @@
-body {
-  font-family: Arial, sans-serif;
-  /* Adiciona espaço no topo para a navbar fixa */
-  padding-top: 56px;
-}
-
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-    url("https://images.unsplash.com/photo-1587574293446-2d2df9d6b87b?auto=format&fit=crop&w=1920&q=80")
-      center/cover no-repeat;
-  color: white;
+  position: relative;
+  overflow: hidden;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  color: #222;
 }
 
-.section-padding {
-  padding: 60px 0;
+/* Fundo alternando entre duas imagens */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 2s ease-in-out;
+  z-index: 0;
 }
 
-footer {
-  background: #1a1a1a;
-  color: #ccc;
-  padding: 20px 0;
+.hero::before {
+  background-image: url("../img/bg08.jpg");
+  animation: swap 12s infinite;
 }
 
-footer a {
-  color: #0d6efd;
-  text-decoration: none;
+.hero::after {
+  background-image: url("../img/bg09.png");
+  animation: swap2 12s infinite;
+  opacity: 0;
+}
+
+/* Transição suave das imagens */
+@keyframes swap {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  60%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes swap2 {
+  0%,
+  40% {
+    opacity: 0;
+  }
+  60%,
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Camada translúcida sobre o fundo */
+.hero::before,
+.hero::after {
+  background-blend-mode: overlay;
+}
+
+/* Conteúdo */
+.hero-body {
+  position: relative;
+  z-index: 2;
+}
+
+/* Título, subtítulo e botão animados */
+.title {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+}
+.subtitle {
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards;
+}
+.button {
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeUp 2s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ícones animados */
+.icon-layer {
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+
+.icon-burst {
+  position: absolute;
+  font-size: 2.2rem;
+  opacity: 0.8;
+  animation: floatIcon 4s ease-in-out infinite alternate;
+}
+
+/* Movimento suave dos ícones */
+@keyframes floatIcon {
+  from {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Posições individuais e delays */
+.icon1 {
+  top: -40px;
+  left: 30%;
+  animation-delay: 0s;
+}
+.icon2 {
+  top: -30px;
+  right: 25%;
+  animation-delay: 0.8s;
+}
+.icon3 {
+  top: 20px;
+  left: 20%;
+  animation-delay: 1.2s;
+}
+.icon4 {
+  top: 10px;
+  right: 20%;
+  animation-delay: 1.8s;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  .icon-burst {
+    font-size: 1.6rem;
+  }
+}
+
+.heroBanner h1 {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px #222;
+}
+
+.heroBanner h2 {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px #4d4d4d;
 }
