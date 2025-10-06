@@ -4,10 +4,9 @@
   gap: 2rem;
 }
 
-/* Card base */
 .card {
   border-radius: 8px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -18,13 +17,15 @@
   object-fit: cover;
   width: 100%;
   max-width: 400px;
+  transition: transform 0.6s ease-out;
 }
 
-/* Reverse column desktop */
+/* Reverse card desktop */
 @media (min-width: 1024px) {
   .card.reverse .columns {
     flex-direction: row-reverse;
   }
+
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
@@ -52,6 +53,21 @@
     min-width: 250px;
   }
 
+  .card .columns {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .card .column {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .card img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
   .carousel-dots {
     display: flex;
     justify-content: center;
@@ -70,20 +86,6 @@
   .carousel-dots .dot.active {
     background-color: #3273dc;
   }
-
-  /* Muda ordem para imagem abaixo do texto */
-  .card .columns {
-    flex-direction: column !important;
-    text-align: center;
-  }
-  .card .column {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  .card img {
-    max-width: 90%;
-    margin: 0 auto;
-  }
 }
 
 /* Fade-in animation */
@@ -96,4 +98,9 @@
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Zoom leve nas imagens ao scroll */
+.zoom-img.visible img {
+  transform: scale(1.05);
 }

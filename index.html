@@ -47,14 +47,6 @@
   <section class="hero is-fullheight">
     <div class="hero-body">
       <div class="container has-text-centered heroBanner">
-        <!-- Ícones animados 
-        <div class="icon-layer">
-          <span class="icon-burst icon1">📦</span>
-          <span class="icon-burst icon2">🚚</span>
-          <span class="icon-burst icon3">✅</span>
-          <span class="icon-burst icon4">🔍</span>
-        </div>-->
-
         <!-- Texto -->
         <h1 class="title is-1">Gestão de Encomendas</h1>
         <h2 class="subtitle is-4">A simplicidade a seu serviço</h2>
@@ -64,7 +56,7 @@
   </section>
 
   <!-- Sobre -->
-  <section id="sobre" class="section reveal">
+  <section id="sobre" class="section reveal" style="background-image: url('assets/img/bg_general.png');">
     <div class="container">
       <h2 class="title has-text-centered">Sobre o Projeto</h2>
 
@@ -75,14 +67,13 @@
           <div class="columns is-vcentered">
             <div class="column is-half">
               <p class="has-text-justified">
-                Em um cenário em que as compras online se tornaram parte essencial do cotidiano,
-                a gestão de encomendas em condomínios passou a exigir soluções mais inteligentes e integradas.
-                O aumento constante do volume de entregas trouxe novos desafios logísticos, como o controle
-                eficiente de recebimentos, a segurança na armazenagem e a comunicação clara entre portaria e moradores.
+                Com o crescimento das compras online, a gestão de encomendas em condomínios exige soluções mais
+                inteligentes,
+                garantindo controle eficiente, segurança e comunicação clara entre portaria e moradores.
               </p>
             </div>
             <div class="column is-half">
-              <figure class="image is-4by3">
+              <figure class="image zoom-img">
                 <img src="assets/img/encomendas.png" alt="Entregador segurando caixa">
               </figure>
             </div>
@@ -93,16 +84,14 @@
         <div class="card fade-in reverse">
           <div class="columns is-vcentered">
             <div class="column is-half">
-              <figure class="image is-4by3">
+              <figure class="image is-4by3 zoom-img">
                 <img src="assets/img/bg07.webp" alt="Segurança e transparência">
               </figure>
             </div>
             <div class="column is-half">
               <p class="has-text-justified">
-                Pensando nisso, desenvolvi um sistema completo e moderno, voltado à automação e otimização de todo
-                o ciclo de vida das encomendas, desde a chegada na portaria até a retirada segura pelo destinatário.
-                A plataforma foi cuidadosamente projetada para oferecer eficiência operacional, segurança dos processos
-                e total transparência nas informações.
+                Desenvolvemos um sistema moderno que automatiza todo o ciclo de encomendas, do recebimento à retirada,
+                com eficiência e transparência total.
               </p>
             </div>
           </div>
@@ -113,13 +102,12 @@
           <div class="columns is-vcentered">
             <div class="column is-half">
               <p class="has-text-justified">
-                Mais do que uma ferramenta de controle, o sistema busca transformar a experiência de todos os envolvidos
-                — administradores, funcionários e moradores — proporcionando um ambiente digital intuitivo, confiável e
-                adaptado às necessidades reais da vida em condomínio.
+                Mais que controle, o sistema oferece uma experiência digital intuitiva e confiável para administradores,
+                funcionários e moradores.
               </p>
             </div>
             <div class="column is-half">
-              <figure class="image is-4by3">
+              <figure class="image is-4by3 zoom-img">
                 <img src="assets/img/morada.png" alt="Moradores de condomínio">
               </figure>
             </div>
@@ -136,6 +124,7 @@
       </div>
     </div>
   </section>
+
   <!-- Recursos -->
   <section class="section reveal">
     <div class="container">
@@ -215,7 +204,8 @@
 
     //CARROSSEL
     const faders = document.querySelectorAll('.fade-in');
-    const options = { threshold: 0.3 };
+    const zoomImages = document.querySelectorAll('.zoom-img');
+
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -223,9 +213,10 @@
           observer.unobserve(entry.target);
         }
       });
-    }, options);
+    }, { threshold: 0.3 });
 
     faders.forEach(fader => appearOnScroll.observe(fader));
+    zoomImages.forEach(img => appearOnScroll.observe(img));
 
     // Dots indicators for mobile
     const wrapper = document.querySelector('.cards-wrapper');
