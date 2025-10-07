@@ -1,106 +1,35 @@
-.cards-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+/* style.css */
+
+/* Define o estilo base para o card, usando a classe 'box' do Bulma */
+.card-moderno {
+  /* TRANSITION: A chave para a sofisticação. Garante que qualquer mudança de estilo seja suave */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    /* Movimento suave */ box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Sombra suave */
+
+  border-radius: 12px; /* Borda arredondada para visual moderno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra inicial sutil */
 }
 
-.card {
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  padding: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Efeito Hover: O card "levanta" e a sombra se intensifica */
+.card-moderno:hover {
+  /* TRANSLATEY: Move o card 8px para cima, dando a impressão de "flutuar" */
+  transform: translateY(-8px);
+
+  /* Sombra mais pronunciada e moderna */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.08);
 }
 
-.card img {
-  border-radius: 6px;
-  object-fit: cover;
-  width: 100%;
-  max-width: 400px;
-  transition: transform 0.6s ease-out;
+/* Garante que o ícone e o texto dentro do card fiquem bem distribuídos */
+.card-moderno .icon {
+  line-height: 1; /* Alinhamento vertical do ícone */
 }
 
-/* Reverse card desktop */
-@media (min-width: 1024px) {
-  .card.reverse .columns {
-    flex-direction: row-reverse;
-  }
-
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-  }
+/* Ajuste para o botão 'ghost' dentro do card */
+.card-moderno .button.is-ghost {
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s;
 }
 
-/* MOBILE: carrossel horizontal */
-@media (max-width: 1023px) {
-  .cards-wrapper {
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 1rem;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .cards-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-
-  .card {
-    flex: 0 0 80%;
-    scroll-snap-align: start;
-    margin-right: 1rem;
-    min-width: 250px;
-  }
-
-  .card .columns {
-    flex-direction: column !important;
-    text-align: center;
-  }
-
-  .card .column {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .card img {
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-  }
-
-  .carousel-dots .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #bbb;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .carousel-dots .dot.active {
-    background-color: #3273dc;
-  }
-}
-
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Zoom leve nas imagens ao scroll */
-.zoom-img.visible img {
-  transform: scale(1.05);
+.card-moderno .button.is-ghost:hover {
+  border-bottom: 2px solid #00d1b2; /* Cor Primary do Bulma na linha de baixo */
 }
