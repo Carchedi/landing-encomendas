@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/nav.css" />
-  <link rel="stylesheet" href="assets/css/carroucel.css" />
+  <link rel="stylesheet" href="assets/css/about.css" />
 
   <script src="assets/js/main.js"></script>
 </head>
@@ -37,8 +37,8 @@
 
     <div id="mainNavbar" class="navbar-menu">
       <div class="navbar-end">
-        <a href="#recursos" class="navbar-item">Recursos</a>
-        <a href="#como-funciona" class="navbar-item">Como Funciona</a>
+        <a href="#sobre" class="navbar-item">Sobre</a>
+        <a href="#funcionalidades" class="navbar-item">Como Funciona</a>
         <a href="#tecnologias" class="navbar-item">Tecnologias</a>
         <a href="#contato" class="navbar-item">Contato</a>
       </div>
@@ -52,179 +52,217 @@
         <!-- Texto -->
         <h1 class="title is-1">Gestão de Encomendas</h1>
         <h2 class="subtitle is-4">A simplicidade a seu serviço</h2>
-        <a href="#" class="button is-dark is-medium">Saiba Mais</a>
+        <a href="#sobre" class="button is-dark is-medium">Saiba Mais</a>
       </div>
     </div>
   </section>
 
   <!-- Sobre -->
-  <section class="section is-medium">
+  <section id="sobre" class="section is-medium about">
     <div class="container">
-      <h2 class="title is-2 has-text-centered">Nossas Três Soluções Chave</h2>
-      <p class="subtitle is-4 has-text-centered mb-6">Design sofisticado e responsivo garantido pelo Bulma.</p>
+      <h2 class="title is-2 has-text-centered">Sobre o projeto</h2>
+      <p class="subtitle is-4 has-text-centered mb-6">
+        simplifique o recebimento, armazenamento e retirada com total transparência.
+      </p>
 
-      <div class="columns is-desktop is-variable is-8">
-
-        <div class="column">
-          <div class="box card-moderno p-5 has-text-centered">
-            <span class="icon is-large has-text-primary mb-4">
-              <i class="fas fa-gem fa-3x"></i>
-            </span>
-            <h3 class="title is-4">Visão de Alto Nível</h3>
-            <p>Descrição concisa da primeira parte. Foco no conceito e no que é entregue. O efeito hover garante
-              sofisticação visual.</p>
-            <a href="#" class="button is-ghost mt-3">Ver Detalhes</a>
-          </div>
+      <!-- Versão Desktop: Cards -->
+      <div class="cards-grid is-hidden-touch">
+        <div class="card-moderno p-5 has-text-centered">
+          <h3 class="title is-4">Gestão de Encomendas</h3>
+          <p>Com o crescimento das compras online, a gestão de encomendas em condomínios exige soluções mais
+            inteligentes, garantindo controle eficiente, segurança e comunicação clara entre portaria e moradores.</p>
+          <img src="assets/img/encomendas.png" alt="encomendas" />
         </div>
 
-        <div class="column">
-          <div class="box card-moderno p-5 has-text-centered">
-            <span class="icon is-large has-text-info mb-4">
-              <i class="fas fa-chart-line fa-3x"></i>
-            </span>
-            <h3 class="title is-4">Estratégia e Crescimento</h3>
-            <p>Descrição concisa da segunda parte. Aqui o conteúdo deve ser direto. Graças ao Bulma, este card não sairá
-              da tela no mobile.</p>
-            <a href="#" class="button is-ghost mt-3">Começar Agora</a>
-          </div>
+        <div class="card-moderno p-5 has-text-centered">
+          <h3 class="title is-4">Automação Completa</h3>
+          <p>Pensando nisso, desenvolvi um sistema moderno que automatiza todo o ciclo de encomendas, do recebimento à
+            retirada, com eficiência e transparência total.</p>
+          <img src="assets/img/bg08.jpg" alt="encomendas" />
         </div>
 
-        <div class="column">
-          <div class="box card-moderno p-5 has-text-centered">
-            <span class="icon is-large has-text-success mb-4">
-              <i class="fas fa-code fa-3x"></i>
-            </span>
-            <h3 class="title is-4">Tecnologia Aplicada</h3>
-            <p>Descrição concisa da terceira parte. Mesmo que o conteúdo seja mais longo, no mobile eles se empilham
-              perfeitamente.</p>
-            <a href="#" class="button is-ghost mt-3">Leia Mais</a>
+        <div class="card-moderno p-5 has-text-centered">
+          <h3 class="title is-4">Experiência Intuitiva</h3>
+          <p>Mais que controle, o sistema oferece uma experiência digital intuitiva e confiável para os moradores,
+            funcionários e administradores.</p>
+          <img src="assets/img/morada.png" alt="encomendas" />
+        </div>
+      </div>
+
+      <!-- Versão Mobile: Acordeão -->
+      <div class="accordion-container is-hidden-desktop">
+        <!-- Item 1 -->
+        <div class="accordion-item active">
+          <button class="accordion-header">
+            <h3 class="title is-4">Gestão de Encomendas</h3>
+            <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner p-5">
+              <p>Com o crescimento das compras online, a gestão de encomendas em condomínios exige soluções mais
+                inteligentes, garantindo controle eficiente, segurança e comunicação clara entre portaria e moradores.
+              </p>
+              <img src="assets/img/encomendas.png" alt="encomendas" />
+            </div>
           </div>
         </div>
-
+        <!-- Item 2 -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3 class="title is-4">Automação Completa</h3>
+            <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner p-5">
+              <p>Pensando nisso, desenvolvi um sistema moderno que automatiza todo o ciclo de encomendas, do recebimento
+                à retirada, com eficiência e transparência total.</p>
+              <img src="assets/img/bg08.jpg" alt="encomendas" />
+            </div>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3 class="title is-4">Experiência Intuitiva</h3>
+            <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner p-5">
+              <p>Mais que controle, o sistema oferece uma experiência digital intuitiva e confiável para os moradores,
+                funcionários e administradores.</p>
+              <img src="assets/img/morada.png" alt="encomendas" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Recursos -->
-  <section class="section reveal">
+  <!-- Como Funciona -->
+  <section id="funcionalidades" class="section is-medium">
     <div class="container">
-      <h2 class="title has-text-centered">Principais Recursos</h2>
+      <h2 class="title is-2 has-text-centered">Funcionalidades</h2>
+      <p class="subtitle is-4 has-text-centered mb-6">
+        Nosso sistema atende administradores, funcionários e moradores de maneira intuitiva e eficiente.
+      </p>
 
-      <div class="columns mt-6">
-        <div class="column">
-          <div class="card has-text-centered p-5">
-            <h3 class="title is-5">📦 Controle Total</h3>
-            <p>Gerencie entradas, saídas e status das encomendas.</p>
+      <!-- Versão Desktop: Abas (Tabs) -->
+      <div class="tabs-container is-hidden-touch">
+        <div class="tabs is-centered is-boxed is-medium">
+          <ul>
+            <li class="is-active" data-tab="1"><a><span>Para a Administração</span></a></li>
+            <li data-tab="2"><a><span>Para a Portaria</span></a></li>
+            <li data-tab="3"><a><span>Para os Moradores</span></a></li>
+          </ul>
+        </div>
+        <div id="tab-content-1" class="tab-content p-5 is-active">
+          <p>Tenha uma visão completa com dashboards, relatórios detalhados e controle total sobre o fluxo de encomendas
+            do condomínio.</p>
+          <img src="assets/img/encomendas.png" alt="Visão da Administração" />
+        </div>
+        <div id="tab-content-2" class="tab-content p-5">
+          <p>Registre o recebimento de pacotes com poucos cliques, notifique os moradores automaticamente e gerencie as
+            retiradas de forma segura e organizada.</p>
+          <img src="assets/img/bg08.jpg" alt="Visão da Portaria" />
+        </div>
+        <div id="tab-content-3" class="tab-content p-5">
+          <p>Receba notificações em tempo real sobre suas encomendas, consulte o status e retire seus pacotes com
+            agilidade, sem precisar ir à portaria.</p>
+          <img src="assets/img/morada.png" alt="Visão dos Moradores" />
+        </div>
+      </div>
+
+      <!-- Versão Mobile: Acordeão -->
+      <div class="accordion-container is-hidden-desktop">
+        <!-- Item 1 -->
+        <div class="accordion-item active">
+          <button class="accordion-header">
+            <h3 class="title is-4">Para a Administração</h3>
+            <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner p-5">
+              <p>Tenha uma visão completa com dashboards, relatórios detalhados e controle total sobre o fluxo de
+                encomendas do condomínio.</p>
+              <img src="assets/img/encomendas.png" alt="Visão da Administração" />
+            </div>
           </div>
         </div>
-        <div class="column">
-          <div class="card has-text-centered p-5">
-            <h3 class="title is-5">👥 Multiusuário</h3>
-            <p>Permite o acesso de diferentes colaboradores com segurança.</p>
+        <!-- Item 2 -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3 class="title is-4">Para a Portaria</h3>
+            <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner p-5">
+              <p>Registre o recebimento de pacotes com poucos cliques, notifique os moradores automaticamente e gerencie
+                as retiradas de forma segura e organizada.</p>
+              <img src="assets/img/bg08.jpg" alt="Visão da Portaria" />
+            </div>
           </div>
         </div>
-        <div class="column">
-          <div class="card has-text-centered p-5">
-            <h3 class="title is-5">📊 Relatórios</h3>
-            <p>Visualize o histórico completo das entregas em poucos cliques.</p>
+        <!-- Item 3 -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <h3 class="title is-4">Para os Moradores</h3>
+            <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner p-5">
+              <p>Receba notificações em tempo real sobre suas encomendas, consulte o status e retire seus pacotes com
+                agilidade, sem precisar ir à portaria.</p>
+              <img src="assets/img/morada.png" alt="Visão dos Moradores" />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- Rodapé -->
-  <footer class="has-text-centered">
+  <footer class=" has-text-centered">
     <p>© 2025 Gestão de Encomendas. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Script para revelar seções ao rolar -->
   <script>
-    const reveals = document.querySelectorAll(".reveal");
-
-    function revealOnScroll() {
-      const triggerBottom = window.innerHeight * 0.85;
-
-      reveals.forEach((el) => {
-        const boxTop = el.getBoundingClientRect().top;
-
-        if (boxTop < triggerBottom) {
-          el.classList.add("visible");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-
-    // Controle do burger menu (mobile)
-    document.addEventListener('DOMContentLoaded', () => {
-      const burger = document.querySelector('.navbar-burger');
-      const menu = document.getElementById(burger.dataset.target);
-
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('is-active');
-        menu.classList.toggle('is-active');
+    document.addEventListener("DOMContentLoaded", () => {
+      // Lógica do Acordeão
+      const accordions = document.querySelectorAll(".accordion-container");
+      accordions.forEach(accordion => {
+        const items = accordion.querySelectorAll(".accordion-item");
+        items.forEach((item) => {
+          const header = item.querySelector(".accordion-header");
+          header.addEventListener("click", () => {
+            // Fecha outros itens no mesmo acordeão
+            items.forEach(otherItem => {
+              if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+              }
+            });
+            // Alterna o item clicado
+            item.classList.toggle("active");
+          });
+        });
       });
 
-      // Alterar navbar ao rolar
-      window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-          navbar.classList.add('is-scrolled');
-        } else {
-          navbar.classList.remove('is-scrolled');
-        }
-      });
-    });
+      // Lógica das Abas (Tabs)
+      const tabs = document.querySelectorAll(".tabs li");
+      const tabContents = document.querySelectorAll(".tab-content");
 
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          const target = tab.dataset.tab;
 
+          tabs.forEach(t => t.classList.remove("is-active"));
+          tab.classList.add("is-active");
 
-
-
-    //CARROSSEL
-    const faders = document.querySelectorAll('.fade-in');
-    const zoomImages = document.querySelectorAll('.zoom-img');
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    faders.forEach(fader => appearOnScroll.observe(fader));
-    zoomImages.forEach(img => appearOnScroll.observe(img));
-
-    // Dots indicators for mobile
-    const wrapper = document.querySelector('.cards-wrapper');
-    const dots = document.querySelectorAll('.carousel-dots .dot');
-    const cards = document.querySelectorAll('.cards-wrapper .card');
-    let currentIndex = 0;
-
-    function updateDots() {
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-    }
-
-    wrapper.addEventListener('scroll', () => {
-      let closestIndex = 0;
-      let minDistance = Infinity;
-      cards.forEach((card, i) => {
-        const distance = Math.abs(card.getBoundingClientRect().left - wrapper.getBoundingClientRect().left);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = i;
-        }
-      });
-      currentIndex = closestIndex;
-      updateDots();
-    });
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'start' });
+          tabContents.forEach(content => {
+            content.classList.remove("is-active");
+          });
+          document.getElementById(`tab-content-${target}`).classList.add("is-active");
+        });
       });
     });
   </script>
