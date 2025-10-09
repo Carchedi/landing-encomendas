@@ -1,5 +1,6 @@
 import { initSwiper } from "./carrossel.js";
 
+// ==================== Dados dos cards e modais ====================
 const cardsData = [
   {
     id: "moradores",
@@ -27,36 +28,45 @@ const cardsData = [
   },
 ];
 
+// ==================== Inicializa tudo após DOM carregar ====================
 document.addEventListener("DOMContentLoaded", () => {
   const swiperWrapper = document.querySelector(".mySwiper .swiper-wrapper");
   const modalsContainer = document.getElementById("modals-container");
 
+  // ======== Gera slides e modais dinamicamente ========
   cardsData.forEach(({ id, title, contentCard, contentModal }) => {
+    // Slide
     const slide = document.createElement("div");
     slide.className = "swiper-slide";
-    slide.innerHTML = `<div class="card">
+    slide.innerHTML = `
+      <div class="card">
         <div class="card-content has-text-centered">
           <h3 class="title is-4">${title}</h3>
           <p>${contentCard}</p>
           <button class="button is-link mt-3" data-target="modal-${id}">Saiba mais</button>
         </div>
-      </div>`;
+      </div>
+    `;
     swiperWrapper.appendChild(slide);
 
+    // Modal
     const modal = document.createElement("div");
     modal.id = `modal-${id}`;
     modal.className = "modal";
-    modal.innerHTML = `<div class="modal-background"></div>
+    modal.innerHTML = `
+      <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">${title}</p>
           <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">${contentModal}</section>
-      </div>`;
+      </div>
+    `;
     modalsContainer.appendChild(modal);
   });
 
+  // ======== Eventos dos modais ========
   const buttons = document.querySelectorAll(".button[data-target]");
   const modals = document.querySelectorAll(".modal");
 
@@ -74,5 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
-  setTimeout(() => initSwiper(), 50);
+  // ======== Inicializa o Swiper após DOM pronto ========
+  setTimeout(() => initSwiper(false), 50); // loop=false
 });

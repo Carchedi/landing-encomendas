@@ -8,15 +8,25 @@
 
   <!-- Bulma CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
+  <!-- Estilos do projeto -->
+  <link rel="stylesheet" href="assets/css/navbar.css" />
+  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/funcionalidades.css" />
+  <link rel="stylesheet" href="assets/css/sobre.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
 </head>
 
 <body>
+  <!-- Contêiner principal onde o main.js irá injetar todo o conteúdo -->
+  <div id="app"></div>
 
-  <div id="app"></div> 
-  <!-- Main JS do Vite -->
-  <script type="module" src="/src/main.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="src/main.js"></script>
 </body>
 
 </html>
