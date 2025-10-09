@@ -4,21 +4,27 @@ const cardsData = [
   {
     id: "moradores",
     title: "Para Moradores",
-    contentCard: "Receba notificações instantâneas, agende retiradas e acompanhe o histórico das suas encomendas com total transparência.",
-    contentModal: "Moradores recebem notificações automáticas, agendam retiradas e acompanham o histórico de forma simples e segura."
+    contentCard:
+      "Receba notificações instantâneas, agende retiradas e acompanhe o histórico das suas encomendas com total transparência.",
+    contentModal:
+      "Moradores recebem notificações automáticas, agendam retiradas e acompanham o histórico de forma simples e segura.",
   },
   {
     id: "funcionarios",
     title: "Para Funcionários",
-    contentCard: "Registre entregas rapidamente, notifique moradores automaticamente e organize o armazenamento com eficiência.",
-    contentModal: "Funcionários registram encomendas com leitura de código de barras, notificam moradores e gerenciam o armazenamento."
+    contentCard:
+      "Registre entregas rapidamente, notifique moradores automaticamente e organize o armazenamento com eficiência.",
+    contentModal:
+      "Funcionários registram encomendas com leitura de código de barras, notificam moradores e gerenciam o armazenamento.",
   },
   {
     id: "admins",
     title: "Para Administradores",
-    contentCard: "Tenha acesso a relatórios detalhados, controle total de acessos e métricas completas de desempenho do sistema.",
-    contentModal: "Administradores acompanham relatórios detalhados e métricas de desempenho em um painel inteligente."
-  }
+    contentCard:
+      "Tenha acesso a relatórios detalhados, controle total de acessos e métricas completas de desempenho do sistema.",
+    contentModal:
+      "Administradores acompanham relatórios detalhados e métricas de desempenho em um painel inteligente.",
+  },
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -57,14 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const modal = document.getElementById(btn.dataset.target);
-      if(modal) modal.classList.add("is-active");
+      if (modal) modal.classList.add("is-active");
     });
   });
 
   modals.forEach((modal) => {
     const closeEls = modal.querySelectorAll(".delete, .modal-background");
-    closeEls.forEach(el => el.addEventListener("click", () => modal.classList.remove("is-active")));
+    closeEls.forEach((el) =>
+      el.addEventListener("click", () => modal.classList.remove("is-active"))
+    );
   });
 
-  initSwiper();
+  setTimeout(() => initSwiper(), 50);
 });
