@@ -1,0 +1,65 @@
+/* Seção funcionalidades */
+#funcionalidades {
+  background-image: url("../../assets/images/bg.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+}
+
+/* Swiper geral */
+.swiper {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s; /* suavidade da escala */
+}
+
+/* Card */
+.card {
+  width: 300px;
+  min-height: 260px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de destaque ao centralizar (opcional hover adicional) */
+.card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão dentro do card */
+.card .button {
+  margin-top: 1rem;
+}
+
+/* Controles do Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #3273dc;
+}
+
+.swiper-pagination-bullet-active {
+  background: #3273dc;
+}
+
+/* Responsividade */
+@media screen and (max-width: 767px) {
+  .swiper-slide {
+    transform: scale(1); /* Mobile mostra 1 slide, sem escala lateral */
+  }
+}

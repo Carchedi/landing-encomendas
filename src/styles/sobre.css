@@ -1,0 +1,100 @@
+/* Seção Sobre */
+#sobre {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("../../assets/images/bg_general.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background animado */
+#sobre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.05);
+  background-size: 50% 50%;
+  animation: move-bg 25s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes move-bg {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-10%, -10%) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* GRID CARDS DESKTOP/TABLET */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1216px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Cards modernos */
+.card-moderno {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.76);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out,
+    box-shadow 0.3s ease;
+}
+
+.card-moderno.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-moderno:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-moderno img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  margin-top: 16px;
+}
+
+/* Media Queries */
+@media (max-width: 1023px) {
+  .section .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

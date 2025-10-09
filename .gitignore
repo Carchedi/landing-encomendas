@@ -1,0 +1,15 @@
+# Node / React
+node_modules/
+package-lock.json
+
+# VSCode / IDEs
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários ou de log
+*.log
+*.tmp
