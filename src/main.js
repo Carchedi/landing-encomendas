@@ -33,3 +33,4 @@ import "./js/navbar.js";
 import "./js/funcionalidades.js";
 import "./js/animations.js";
 import "./js/sobre.js";
+import "./js/carrossel.js"; // se for separado, ou initSwiper é chamado dentro do funcionalidades.js

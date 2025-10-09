@@ -1,11 +1,11 @@
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
-document.addEventListener("DOMContentLoaded", () => {
+export function initSwiper() {
   const swiper = new Swiper(".mySwiper", {
+    loop: true,
     centeredSlides: true,
     slidesPerView: "auto",
-    loop: true,
     spaceBetween: 30,
     autoplay: {
       delay: 3000,
@@ -24,20 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
       1024: { slidesPerView: 3 },
     },
     on: {
-      init: function () {
-        updateSlideScale(this);
-      },
-      slideChange: function () {
-        updateSlideScale(this);
-      },
+      init: function() { updateSlideScale(this); },
+      slideChange: function() { updateSlideScale(this); },
+      resize: function() { updateSlideScale(this); },
     },
   });
 
   function updateSlideScale(swiperInstance) {
-    swiperInstance.slides.forEach((slide) => {
+    swiperInstance.slides.forEach(slide => {
       const isActive = slide.classList.contains("swiper-slide-active");
       slide.style.transform = isActive ? "scale(1)" : "scale(0.85)";
       slide.style.transition = "transform 0.3s";
     });
   }
-});
+}
