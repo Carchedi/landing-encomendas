@@ -2,7 +2,7 @@
 node_modules/
 package-lock.json
 
-# VSCode / IDEs
+# IDEs
 .vscode/
 .idea/
 
@@ -10,6 +10,6 @@ package-lock.json
 .DS_Store
 Thumbs.db
 
-# Arquivos temporários ou de log
+# Logs e temporários
 *.log
 *.tmp
