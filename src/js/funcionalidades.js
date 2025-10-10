@@ -3,8 +3,8 @@ import { gsap } from "gsap";
 document.addEventListener("DOMContentLoaded", () => {
   const slideshowWrapper = document.querySelector(".slideshow-wrapper");
   const slides = slideshowWrapper.querySelectorAll(".slide");
-  const nextArrow = slideshowWrapper.querySelector(".arrow.next");
-  const prevArrow = slideshowWrapper.querySelector(".arrow.prev");
+  const nextArrow = slideshowWrapper.querySelector(".aNext");
+  const prevArrow = slideshowWrapper.querySelector(".aPrev");
   const paginationContainer = slideshowWrapper.querySelector(".pagination");
   let current = 0;
   let interval = null;
