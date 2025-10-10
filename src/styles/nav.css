@@ -4,14 +4,31 @@ html {
 
 /* Navbar translúcida com efeito ao rolar */
 .navbar {
-  background: rgba(255, 255, 255, 0.507);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease-in-out;
 }
 
 .navbar.is-scrolled {
-  background: rgba(255, 255, 255, 0.507);
+  background: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone animado */
+.logo-icon {
+  color: #ffb400;
+  margin-right: 8px;
+  animation: moveTruck 2.8s ease-in-out infinite;
+}
+
+@keyframes moveTruck {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
 }
 
 /* Nome da marca */

@@ -6,7 +6,7 @@
     ),
     url("../../assets/images/bg_general.png");
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   padding: 60px 0;
   position: relative;

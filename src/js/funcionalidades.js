@@ -67,4 +67,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   startInterval();
+
+  // ----------------------------
+  // SWIPE TOUCH
+  // ----------------------------
+  let startX = 0;
+  let endX = 0;
+
+  slideshowWrapper.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slideshowWrapper.addEventListener("touchmove", (e) => {
+    endX = e.touches[0].clientX;
+  });
+
+  slideshowWrapper.addEventListener("touchend", () => {
+    const threshold = 50; // mínima distância para considerar swipe
+    if (startX - endX > threshold) {
+      // swipe para esquerda → próximo slide
+      nextSlideFunc();
+    } else if (endX - startX > threshold) {
+      // swipe para direita → slide anterior
+      prevSlideFunc();
+    }
+    // reseta valores
+    startX = 0;
+    endX = 0;
+  });
 });
