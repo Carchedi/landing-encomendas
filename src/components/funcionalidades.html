@@ -1,21 +1,64 @@
-<section id="funcionalidades" class="section is-medium functions">
-  <div class="container">
-    <h2 class="title is-2 has-text-centered">Como Funciona</h2>
-    <p class="subtitle is-4 has-text-centered mb-6">
-      Gestão de encomendas descomplicada: eficiência para funcionários, tranquilidade para moradores e controle para
-      administradores.
-    </p>
-
-    <!-- Swiper -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <!-- Slides serão gerados dinamicamente via JS -->
+<section id="funcionalidades" class="slideshow-wrapper">
+  <div class="slideshow">
+    <div class="slides">
+      <!-- Slide 1 -->
+      <div class="slide is-active">
+        <div class="image-container">
+          <img src="https://www.alixbdanthenay.fr/wp-content/uploads/2015/07/Indispensable-1.jpg" alt="Slide 1"
+            class="image">
+        </div>
+        <div class="slide-content">
+          <div class="caption">
+            <div class="title">Para Moradores</div>
+            <div class="text">
+              <p>Receba notificações instantâneas e acompanhe suas encomendas.</p>
+            </div>
+            <a href="#" class="btn"><span class="btn-inner">Saiba Mais</span></a>
+          </div>
+        </div>
       </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="image-container">
+          <img src="https://www.alixbdanthenay.fr/wp-content/uploads/2015/07/Indispensable-4-1.jpg" alt="Slide 2"
+            class="image">
+        </div>
+        <div class="slide-content">
+          <div class="caption">
+            <div class="title">Para Funcionários</div>
+            <div class="text">
+              <p>Registre entregas rapidamente e organize o armazenamento.</p>
+            </div>
+            <a href="#" class="btn"><span class="btn-inner">Saiba Mais</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <div class="image-container">
+          <img src="https://www.alixbdanthenay.fr/wp-content/uploads/2016/11/11.jpg" alt="Slide 3" class="image">
+        </div>
+        <div class="slide-content">
+          <div class="caption">
+            <div class="title">Para Administradores</div>
+            <div class="text">
+              <p>Tenha acesso a relatórios detalhados e métricas de desempenho.</p>
+            </div>
+            <a href="#" class="btn"><span class="btn-inner">Saiba Mais</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination"></div>
+
+    <!-- Arrows -->
+    <div class="arrows">
+      <div class="arrow prev">&lt;</div>
+      <div class="arrow next">&gt;</div>
     </div>
   </div>
-
-  <div id="modals-container"></div>
 </section>

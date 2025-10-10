@@ -34,7 +34,7 @@
 /* Cards */
 .cards {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
@@ -44,6 +44,7 @@
   border-radius: 15px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 350px;
 }
 
 .card:hover {
@@ -75,17 +76,4 @@
   color: #555;
   font-size: 15px;
   line-height: 1.5;
-}
-
-/* Responsividade */
-@media (min-width: 600px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }

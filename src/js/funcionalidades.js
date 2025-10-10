@@ -1,89 +1,70 @@
-import { initSwiper } from "./carrossel.js";
+import { gsap } from "gsap";
 
-// ==================== Dados dos cards e modais ====================
-const cardsData = [
-  {
-    id: "moradores",
-    title: "Para Moradores",
-    contentCard:
-      "Receba notificações instantâneas, agende retiradas e acompanhe o histórico das suas encomendas com total transparência.",
-    contentModal:
-      "Moradores recebem notificações automáticas, agendam retiradas e acompanham o histórico de forma simples e segura.",
-  },
-  {
-    id: "funcionarios",
-    title: "Para Funcionários",
-    contentCard:
-      "Registre entregas rapidamente, notifique moradores automaticamente e organize o armazenamento com eficiência.",
-    contentModal:
-      "Funcionários registram encomendas com leitura de código de barras, notificam moradores e gerenciam o armazenamento.",
-  },
-  {
-    id: "admins",
-    title: "Para Administradores",
-    contentCard:
-      "Tenha acesso a relatórios detalhados, controle total de acessos e métricas completas de desempenho do sistema.",
-    contentModal:
-      "Administradores acompanham relatórios detalhados e métricas de desempenho em um painel inteligente.",
-  },
-];
-
-// ==================== Inicializa tudo após DOM carregar ====================
 document.addEventListener("DOMContentLoaded", () => {
-  const swiperWrapper = document.querySelector(".mySwiper .swiper-wrapper");
-  const modalsContainer = document.getElementById("modals-container");
+  const slideshowWrapper = document.querySelector(".slideshow-wrapper");
+  const slides = slideshowWrapper.querySelectorAll(".slide");
+  const nextArrow = slideshowWrapper.querySelector(".arrow.next");
+  const prevArrow = slideshowWrapper.querySelector(".arrow.prev");
+  const paginationContainer = slideshowWrapper.querySelector(".pagination");
+  let current = 0;
+  let interval = null;
 
-  // ======== Gera slides e modais dinamicamente ========
-  cardsData.forEach(({ id, title, contentCard, contentModal }) => {
-    // Slide
-    const slide = document.createElement("div");
-    slide.className = "swiper-slide";
-    slide.innerHTML = `
-      <div class="card">
-        <div class="card-content has-text-centered">
-          <h3 class="title is-4">${title}</h3>
-          <p>${contentCard}</p>
-          <button class="button is-link mt-3" data-target="modal-${id}">Saiba mais</button>
-        </div>
-      </div>
-    `;
-    swiperWrapper.appendChild(slide);
-
-    // Modal
-    const modal = document.createElement("div");
-    modal.id = `modal-${id}`;
-    modal.className = "modal";
-    modal.innerHTML = `
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">${title}</p>
-          <button class="delete" aria-label="close"></button>
-        </header>
-        <section class="modal-card-body">${contentModal}</section>
-      </div>
-    `;
-    modalsContainer.appendChild(modal);
+  // Cria bullets automaticamente
+  slides.forEach((_, i) => {
+    const bullet = document.createElement("div");
+    bullet.classList.add("bullet");
+    if (i === 0) bullet.classList.add("active");
+    bullet.addEventListener("click", () => goToSlide(i));
+    paginationContainer.appendChild(bullet);
   });
 
-  // ======== Eventos dos modais ========
-  const buttons = document.querySelectorAll(".button[data-target]");
-  const modals = document.querySelectorAll(".modal");
+  const bullets = paginationContainer.querySelectorAll(".bullet");
 
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const modal = document.getElementById(btn.dataset.target);
-      if (modal) modal.classList.add("is-active");
-    });
-  });
+  function goToSlide(index) {
+    if (index === current) return;
 
-  modals.forEach((modal) => {
-    const closeEls = modal.querySelectorAll(".delete, .modal-background");
-    closeEls.forEach((el) =>
-      el.addEventListener("click", () => modal.classList.remove("is-active"))
+    const prevSlide = slides[current];
+    const nextSlide = slides[index];
+
+    gsap.to(prevSlide, { opacity: 0, duration: 0.8 });
+    gsap.to(nextSlide, { opacity: 1, duration: 0.8 });
+
+    gsap.fromTo(
+      nextSlide.querySelectorAll(".slide-content > .caption > *"),
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.15, duration: 0.8, delay: 0.2 }
     );
-  });
 
-  // ======== Inicializa o Swiper após DOM pronto ========
-  setTimeout(() => initSwiper(false), 50); // loop=false
+    bullets[current].classList.remove("active");
+    bullets[index].classList.add("active");
+
+    current = index;
+    resetInterval();
+  }
+
+  function nextSlideFunc() {
+    let next = current + 1;
+    if (next >= slides.length) next = 0;
+    goToSlide(next);
+  }
+
+  function prevSlideFunc() {
+    let prev = current - 1;
+    if (prev < 0) prev = slides.length - 1;
+    goToSlide(prev);
+  }
+
+  nextArrow.addEventListener("click", nextSlideFunc);
+  prevArrow.addEventListener("click", prevSlideFunc);
+
+  function startInterval() {
+    interval = setInterval(nextSlideFunc, 5000);
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    startInterval();
+  }
+
+  startInterval();
 });
