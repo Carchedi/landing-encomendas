@@ -1,6 +1,18 @@
+#funcionalidades {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url(../../assets/images/bg11.jpg);
+}
+
 .section.funcionalidades {
   position: relative;
-  background: linear-gradient(180deg, #f5f5f5 0%, #ebf5fa 100%);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("../../assets/images/bg_general.png");
   color: #222;
   padding: 6rem 1rem;
   text-align: center;
@@ -16,7 +28,9 @@
   overflow: hidden;
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  background: #fff;
+  background: #e4e4e462;
+  box-shadow: rgba(0, 0, 0, 0.39) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .slides {
@@ -28,7 +42,7 @@
   flex-shrink: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 3rem 1rem;
+  padding: 1rem 1rem;
   position: relative;
 }
 
