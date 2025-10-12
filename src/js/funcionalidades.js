@@ -111,17 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
-  const pageSubtitle = document.getElementById("page-subtitle");
 
   // Configuração da Paginação
   let currentPage = 1;
   const totalPages = 4;
-  const pageTitles = [
-    "Página 1 de 4: Conteúdo Principal",
-    "Página 2 de 4: Vantagens",
-    "Página 3 de 4: Detalhes",
-    "Página 4 de 4: Conclusão",
-  ];
 
   function updatePagination() {
     // 1. Oculta todas as páginas de conteúdo (remove a classe hidden)
@@ -139,15 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
       currentContent.classList.remove("hidden");
     }
 
-    // 3. Atualiza o subtítulo
-    pageSubtitle.textContent = pageTitles[currentPage - 1];
-
-    // 4. Habilita/Desabilita botões
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
-
-    prevBtn.classList.toggle("disabled", currentPage === 1);
-    nextBtn.classList.toggle("disabled", currentPage === totalPages);
+    // 4. Oculta/Mostra botões de paginação
+    prevBtn.classList.toggle("is-invisible", currentPage === 1);
+    nextBtn.classList.toggle("is-invisible", currentPage === totalPages);
   }
 
   // --- Listeners ---
@@ -172,5 +159,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Chama a função uma vez no início (embora o evento do modal seja mais confiável)
-  // updatePagination();
+  updatePagination();
 });

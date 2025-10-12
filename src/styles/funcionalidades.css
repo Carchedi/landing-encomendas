@@ -213,9 +213,21 @@
   display: none !important;
 }
 
+/* Classe para ocultar mantendo o espaço */
+.is-invisible {
+  visibility: hidden;
+}
+
 /* Opcional: Garante que o conteúdo das páginas tenha um estilo base */
 .page-content {
   min-height: 100px; /* Garante que o modal não encolha na transição */
   padding: 10px 0;
   line-height: 1.6;
+}
+
+/* Estilo para restaurar a aparência de lista dentro do modal */
+.modal-body .list-styled {
+  list-style: disc; /* ou 'circle', 'square' */
+  padding-left: 2rem; /* Ajuste o espaçamento conforme necessário */
+  text-align: left; /* Garante que o texto da lista fique alinhado à esquerda */
 }
