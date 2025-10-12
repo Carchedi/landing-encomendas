@@ -231,3 +231,7 @@
   padding-left: 2rem; /* Ajuste o espaçamento conforme necessário */
   text-align: left; /* Garante que o texto da lista fique alinhado à esquerda */
 }
+
+.text-justify {
+  text-align: justify;
+}

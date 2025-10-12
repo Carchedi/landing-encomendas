@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const slideCount = slides.length;
   const slideDuration = 5000;
   let interval = null;
+  let isPaused = false;
 
   // Criar bullets
   slides.forEach((_, i) => {
@@ -57,11 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function startInterval() {
+    if (isPaused) return;
     interval = setInterval(nextSlide, slideDuration);
     startProgressBar();
   }
 
   function resetInterval() {
+    if (isPaused) return;
     clearInterval(interval);
     startInterval();
   }
@@ -107,6 +110,26 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSlidePosition();
 
   // ===================================================================
+  // PAUSA O CARROSSEL QUANDO UM MODAL ESTÁ ABERTO
+  // ===================================================================
+  document.querySelectorAll(".modal").forEach((modal) => {
+    modal.addEventListener("shown.bs.modal", () => {
+      isPaused = true;
+      clearInterval(interval);
+      // Pausa a barra de progresso
+      const currentWidth = getComputedStyle(progressBarInner).width;
+      progressBarInner.style.transition = "none";
+      progressBarInner.style.width = currentWidth;
+    });
+
+    modal.addEventListener("hidden.bs.modal", () => {
+      isPaused = false;
+      // Retoma o carrossel
+      resetInterval();
+    });
+  });
+
+  // ===================================================================
   // LÓGICA DE PAGINAÇÃO PARA MÚLTIPLOS MODAIS
   // ===================================================================
 
@@ -116,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = modalElement.querySelector(".next-btn");
     const pages = modalElement.querySelectorAll(".page-content");
     const totalPages = pages.length;
+    const modalBody = modalElement.querySelector(".modal-body");
     let currentPage = 1;
 
     if (!prevBtn || !nextBtn || totalPages === 0) return;
@@ -132,6 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // 3. Oculta/Mostra botões de paginação
       prevBtn.classList.toggle("is-invisible", currentPage === 1);
       nextBtn.classList.toggle("is-invisible", currentPage === totalPages);
+
+      // 4. Reseta a posição da rolagem do corpo do modal para o topo
+      if (modalBody) {
+        modalBody.scrollTop = 0;
+      }
     }
 
     nextBtn.addEventListener("click", () => {
