@@ -1,4 +1,6 @@
-/* Seção Sobre */
+/* ==========================
+   Seção Sobre
+========================== */
 #sobre {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.7),
@@ -40,7 +42,7 @@
   }
 }
 
-/* GRID CARDS DESKTOP/TABLET */
+/* GRID CARDS */
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -49,49 +51,106 @@
   z-index: 2;
 }
 
-@media (min-width: 768px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1216px) {
-  .cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 /* Cards modernos */
 .card-moderno {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-radius: 1rem;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.39) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   background: rgba(255, 255, 255, 0.76);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out,
-    box-shadow 0.3s ease;
-}
-
-.card-moderno.visible {
-  opacity: 1;
-  transform: translateY(0);
+  padding: 2rem;
+  transition: box-shadow 0.3s ease;
 }
 
 .card-moderno:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
 }
 
-.card-moderno img {
+/* Título centralizado sempre */
+.card-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Estrutura interna do card */
+.card-inner {
+  display: flex;
+  flex-direction: column; /* padrão mobile */
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-inner .card-image img {
   max-width: 100%;
   border-radius: 0.5rem;
-  margin-top: 16px;
 }
 
-/* Media Queries */
+.card-inner .card-text p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify; /* Texto justificado */
+}
+
+/* ==========================
+   MEDIA QUERIES
+========================== */
+
+/* TABLET & MOBILE */
+@media (max-width: 1215px) {
+  .cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .card-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .card-inner .card-image {
+    width: 40%;
+  }
+
+  .card-inner .card-text {
+    width: 60%;
+  }
+
+  /* Zig-zag alternado */
+  .card-moderno:nth-child(even) .card-inner {
+    flex-direction: row-reverse;
+  }
+}
+
+/* DESKTOP: 1216px+ */
+@media (min-width: 1216px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-moderno {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .card-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-inner .card-image,
+  .card-inner .card-text {
+    width: 100%;
+  }
+}
+
+/* Container padding ajustado */
 @media (max-width: 1023px) {
   .section .container {
     padding-left: 1rem;
