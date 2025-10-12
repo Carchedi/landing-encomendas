@@ -2,10 +2,12 @@
 // CSS
 // =======================
 import "bulma/css/bulma.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/navbar.css";
 import "./styles/hero.css";
 import "./styles/funcionalidades.css";
 import "./styles/sobre.css";
+import "./styles/modais.css";
 import "./styles/footer.css";
 
 // =======================
@@ -33,3 +35,4 @@ import "./js/navbar.js";
 import "./js/funcionalidades.js";
 import "./js/animations.js";
 import "./js/sobre.js";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // inclui JS necessário para modais, tooltips etc

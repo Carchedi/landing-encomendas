@@ -12,6 +12,7 @@
     "vite": "^7.1.7"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "bulma": "^1.0.4",
     "bulma-carousel": "^4.0.24",
     "fa-icons": "^0.2.0",
