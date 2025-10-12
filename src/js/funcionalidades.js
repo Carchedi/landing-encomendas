@@ -106,58 +106,55 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", updateSlidePosition);
   updateSlidePosition();
 
-  const modal = document.getElementById("modal1");
-  if (!modal) return;
+  // ===================================================================
+  // LÓGICA DE PAGINAÇÃO PARA MÚLTIPLOS MODAIS
+  // ===================================================================
 
-  const prevBtn = document.getElementById("prev-btn");
-  const nextBtn = document.getElementById("next-btn");
+  // Função que configura a paginação para um único modal
+  function setupModalPagination(modalElement) {
+    const prevBtn = modalElement.querySelector(".prev-btn");
+    const nextBtn = modalElement.querySelector(".next-btn");
+    const pages = modalElement.querySelectorAll(".page-content");
+    const totalPages = pages.length;
+    let currentPage = 1;
 
-  // Configuração da Paginação
-  let currentPage = 1;
-  const totalPages = 4;
+    if (!prevBtn || !nextBtn || totalPages === 0) return;
 
-  function updatePagination() {
-    // 1. Oculta todas as páginas de conteúdo (remove a classe hidden)
-    document
-      .querySelectorAll("#content-container .page-content")
-      .forEach((el) => {
-        el.classList.add("hidden");
-      });
+    function updatePagination() {
+      // 1. Oculta todas as páginas
+      pages.forEach((page) => page.classList.add("hidden"));
 
-    // 2. Mostra a página atual (remove a classe hidden)
-    const currentContent = document.getElementById(
-      `page-content-${currentPage}`
-    );
-    if (currentContent) {
-      currentContent.classList.remove("hidden");
+      // 2. Mostra a página atual (baseado no índice do array, que é currentPage - 1)
+      if (pages[currentPage - 1]) {
+        pages[currentPage - 1].classList.remove("hidden");
+      }
+
+      // 3. Oculta/Mostra botões de paginação
+      prevBtn.classList.toggle("is-invisible", currentPage === 1);
+      nextBtn.classList.toggle("is-invisible", currentPage === totalPages);
     }
 
-    // 4. Oculta/Mostra botões de paginação
-    prevBtn.classList.toggle("is-invisible", currentPage === 1);
-    nextBtn.classList.toggle("is-invisible", currentPage === totalPages);
+    nextBtn.addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePagination();
+      }
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+      }
+    });
+
+    // Garante que a paginação inicie sempre na Página 1 ao abrir o modal
+    modalElement.addEventListener("shown.bs.modal", () => {
+      currentPage = 1;
+      updatePagination();
+    });
   }
 
-  // --- Listeners ---
-  nextBtn.addEventListener("click", () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      updatePagination();
-    }
-  });
-
-  prevBtn.addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      updatePagination();
-    }
-  });
-
-  // Garante que a paginação inicie sempre na Página 1 ao abrir o modal
-  modal.addEventListener("shown.bs.modal", () => {
-    currentPage = 1;
-    updatePagination();
-  });
-
-  // Chama a função uma vez no início (embora o evento do modal seja mais confiável)
-  updatePagination();
+  // Encontra todos os modais que precisam de paginação e inicializa cada um
+  document.querySelectorAll(".modal-paginated").forEach(setupModalPagination);
 });
