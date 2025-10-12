@@ -1,64 +1,64 @@
 import { gsap } from "gsap";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const slideshowWrapper = document.querySelector(".slideshow-wrapper");
-  const slides = slideshowWrapper.querySelectorAll(".slide");
-  const nextArrow = slideshowWrapper.querySelector(".aNext");
-  const prevArrow = slideshowWrapper.querySelector(".aPrev");
-  const paginationContainer = slideshowWrapper.querySelector(".pagination");
+  const slidesContainer = document.querySelector(".slides");
+  const slides = document.querySelectorAll(".slide");
+  const nextArrow = document.querySelector(".aNext");
+  const prevArrow = document.querySelector(".aPrev");
+  const bulletsContainer = document.querySelector(".pagination");
+  const progressBarInner = document.querySelector(".progress-bar-inner");
+
   let current = 0;
+  const slideCount = slides.length;
+  const slideDuration = 5000;
   let interval = null;
 
-  // Cria bullets automaticamente
+  // Criar bullets
   slides.forEach((_, i) => {
     const bullet = document.createElement("div");
     bullet.classList.add("bullet");
-    if (i === 0) bullet.classList.add("active");
+    if (i === 0) bullet.classList.add("is-active");
     bullet.addEventListener("click", () => goToSlide(i));
-    paginationContainer.appendChild(bullet);
+    bulletsContainer.appendChild(bullet);
   });
 
-  const bullets = paginationContainer.querySelectorAll(".bullet");
+  const bullets = bulletsContainer.querySelectorAll(".bullet");
+
+  function updateSlidePosition() {
+    const slideWidth = slides[0].offsetWidth;
+    slidesContainer.style.transform = `translateX(-${current * slideWidth}px)`;
+    bullets.forEach((b, i) => b.classList.toggle("is-active", i === current));
+    resetProgressBar();
+  }
 
   function goToSlide(index) {
-    if (index === current) return;
-
-    const prevSlide = slides[current];
-    const nextSlide = slides[index];
-
-    gsap.to(prevSlide, { opacity: 0, duration: 0.8 });
-    gsap.to(nextSlide, { opacity: 1, duration: 0.8 });
-
-    gsap.fromTo(
-      nextSlide.querySelectorAll(".slide-content > .caption > *"),
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.15, duration: 0.8, delay: 0.2 }
-    );
-
-    bullets[current].classList.remove("active");
-    bullets[index].classList.add("active");
-
     current = index;
+    updateSlidePosition();
     resetInterval();
   }
 
-  function nextSlideFunc() {
-    let next = current + 1;
-    if (next >= slides.length) next = 0;
-    goToSlide(next);
+  function nextSlide() {
+    current = (current + 1) % slideCount;
+    updateSlidePosition();
   }
 
-  function prevSlideFunc() {
-    let prev = current - 1;
-    if (prev < 0) prev = slides.length - 1;
-    goToSlide(prev);
+  function prevSlide() {
+    current = (current - 1 + slideCount) % slideCount;
+    updateSlidePosition();
   }
 
-  nextArrow.addEventListener("click", nextSlideFunc);
-  prevArrow.addEventListener("click", prevSlideFunc);
+  nextArrow.addEventListener("click", () => {
+    nextSlide();
+    resetInterval();
+  });
+  prevArrow.addEventListener("click", () => {
+    prevSlide();
+    resetInterval();
+  });
 
   function startInterval() {
-    interval = setInterval(nextSlideFunc, 5000);
+    interval = setInterval(nextSlide, slideDuration);
+    startProgressBar();
   }
 
   function resetInterval() {
@@ -68,31 +68,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startInterval();
 
-  // ----------------------------
-  // SWIPE TOUCH
-  // ----------------------------
+  // Swipe mobile
   let startX = 0;
-  let endX = 0;
-
-  slideshowWrapper.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
+  slidesContainer.addEventListener(
+    "touchstart",
+    (e) => (startX = e.touches[0].clientX)
+  );
+  slidesContainer.addEventListener("touchmove", (e) => {});
+  slidesContainer.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (diff > 50) nextSlide();
+    else if (diff < -50) prevSlide();
+    resetInterval();
   });
 
-  slideshowWrapper.addEventListener("touchmove", (e) => {
-    endX = e.touches[0].clientX;
-  });
+  // Barra de progresso
+  function startProgressBar() {
+    progressBarInner.style.transition = "none";
+    progressBarInner.style.width = "0%";
+    requestAnimationFrame(() => {
+      progressBarInner.style.transition = `width ${slideDuration}ms linear`;
+      progressBarInner.style.width = "100%";
+    });
+  }
 
-  slideshowWrapper.addEventListener("touchend", () => {
-    const threshold = 50; // mínima distância para considerar swipe
-    if (startX - endX > threshold) {
-      // swipe para esquerda → próximo slide
-      nextSlideFunc();
-    } else if (endX - startX > threshold) {
-      // swipe para direita → slide anterior
-      prevSlideFunc();
-    }
-    // reseta valores
-    startX = 0;
-    endX = 0;
-  });
+  function resetProgressBar() {
+    progressBarInner.style.transition = "none";
+    progressBarInner.style.width = "0%";
+    requestAnimationFrame(() => {
+      progressBarInner.style.transition = `width ${slideDuration}ms linear`;
+      progressBarInner.style.width = "100%";
+    });
+  }
+
+  // Atualiza posição ao redimensionar
+  window.addEventListener("resize", updateSlidePosition);
+  updateSlidePosition();
 });
