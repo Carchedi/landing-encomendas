@@ -105,4 +105,72 @@ document.addEventListener("DOMContentLoaded", () => {
   // Atualiza posição ao redimensionar
   window.addEventListener("resize", updateSlidePosition);
   updateSlidePosition();
+
+  const modal = document.getElementById("modal1");
+  if (!modal) return;
+
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const pageSubtitle = document.getElementById("page-subtitle");
+
+  // Configuração da Paginação
+  let currentPage = 1;
+  const totalPages = 4;
+  const pageTitles = [
+    "Página 1 de 4: Conteúdo Principal",
+    "Página 2 de 4: Vantagens",
+    "Página 3 de 4: Detalhes",
+    "Página 4 de 4: Conclusão",
+  ];
+
+  function updatePagination() {
+    // 1. Oculta todas as páginas de conteúdo (remove a classe hidden)
+    document
+      .querySelectorAll("#content-container .page-content")
+      .forEach((el) => {
+        el.classList.add("hidden");
+      });
+
+    // 2. Mostra a página atual (remove a classe hidden)
+    const currentContent = document.getElementById(
+      `page-content-${currentPage}`
+    );
+    if (currentContent) {
+      currentContent.classList.remove("hidden");
+    }
+
+    // 3. Atualiza o subtítulo
+    pageSubtitle.textContent = pageTitles[currentPage - 1];
+
+    // 4. Habilita/Desabilita botões
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+
+    prevBtn.classList.toggle("disabled", currentPage === 1);
+    nextBtn.classList.toggle("disabled", currentPage === totalPages);
+  }
+
+  // --- Listeners ---
+  nextBtn.addEventListener("click", () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      updatePagination();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updatePagination();
+    }
+  });
+
+  // Garante que a paginação inicie sempre na Página 1 ao abrir o modal
+  modal.addEventListener("shown.bs.modal", () => {
+    currentPage = 1;
+    updatePagination();
+  });
+
+  // Chama a função uma vez no início (embora o evento do modal seja mais confiável)
+  // updatePagination();
 });

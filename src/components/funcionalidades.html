@@ -74,15 +74,42 @@
   <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
+
         <div class="modal-header">
           <h5 class="modal-title" id="modal1Label">Para Moradores</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
+
         <div class="modal-body">
-          Colocar aqui a exlicacao e as vantagens par os moradores.
+          <h6 id="page-subtitle" class="text-lg font-semibold text-blue-600 mb-3"></h6>
+
+          <div id="content-container">
+
+            <div id="page-content-1" class="page-content">
+              <p><strong>PAG1:</strong> Conteúdo da primeira página para Moradores.</p>
+            </div>
+
+            <div id="page-content-2" class="page-content hidden">
+              <p><strong>PAG2:</strong> Conteúdo da segunda página para Moradores.</p>
+            </div>
+
+            <div id="page-content-3" class="page-content hidden">
+              <p><strong>PAG3:</strong> Conteúdo da terceira página para Moradores.</p>
+            </div>
+
+            <div id="page-content-4" class="page-content hidden">
+              <p><strong>PAG4:</strong> Conteúdo da quarta página para Moradores.</p>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+
+        <div class="modal-footer flex justify-content-between items-center">
+          <button type="button" id="prev-btn" class="btn btn-secondary" disabled>
+            Anterior
+          </button>
+          <button type="button" id="next-btn" class="btn btn-primary">
+            Próxima
+          </button>
         </div>
       </div>
     </div>

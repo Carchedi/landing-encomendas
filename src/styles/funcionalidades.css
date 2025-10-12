@@ -207,3 +207,15 @@
     font-size: 1rem;
   }
 }
+
+/* REGRA CRUCIAL: Oculta elementos que não devem ser exibidos */
+.hidden {
+  display: none !important;
+}
+
+/* Opcional: Garante que o conteúdo das páginas tenha um estilo base */
+.page-content {
+  min-height: 100px; /* Garante que o modal não encolha na transição */
+  padding: 10px 0;
+  line-height: 1.6;
+}
