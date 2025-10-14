@@ -57,3 +57,34 @@
 #demoTabContent {
   margin-top: -1px; /* Alinha a borda do painel com a borda da aba */
 }
+
+/* Container com rolagem para a demonstração dos moradores */
+.demo-scroll-container {
+  max-height: 450px; /* Altura um pouco maior que um item */
+  overflow-y: auto; /* Adiciona a rolagem vertical */
+  padding: 1rem;
+  margin: -1rem; /* Compensa o padding do pai para alinhar */
+}
+
+/* ===== Reordena os blocos da seção de demonstração ===== */
+@media (max-width: 767.98px) {
+  /* força o empilhamento vertical */
+  #demonstracao .row {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* garante que o texto venha sempre antes da imagem */
+  #demonstracao .row > [class*="col-md"]:first-child {
+    order: 1 !important;
+  }
+
+  #demonstracao .row > [class*="col-md"]:last-child {
+    order: 2 !important;
+  }
+
+  /* adiciona espaçamento entre blocos */
+  #demonstracao .row + .row {
+    margin-top: 2rem !important;
+  }
+}
