@@ -26,7 +26,7 @@
             <div class="card-moderno p-5 has-text-centered">
                 <h3 class="title is-4">Experiência Intuitiva</h3>
                 <p>Mais que controle, o sistema oferece uma experiência digital intuitiva e confiável para os moradores,
-                    funcionários e administradores.</p>
+                    funcionários e gestores.</p>
                 <img src="/assets/images/morada.png" alt="encomendas" />
             </div>
         </div>
@@ -75,7 +75,7 @@
                     <div class="accordion-content-inner p-5">
                         <p>Mais que controle, o sistema oferece uma experiência digital intuitiva e confiável para os
                             moradores,
-                            funcionários e administradores.</p>
+                            funcionários e gestores.</p>
                         <img src="/assets/images/morada.png" alt="encomendas" />
                     </div>
                 </div>

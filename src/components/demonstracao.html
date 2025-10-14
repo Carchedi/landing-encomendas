@@ -1,0 +1,41 @@
+<section id="demonstracao" class="section demo-section">
+    <div class="container">
+        <h2 class="title is-2 has-text-centered">Conheça a nossa interface</h2>
+        <p class="subtitle is-5 has-text-centered mb-5">
+            Navegue pelas telas e veja como o sistema é simples e intuitivo para cada perfil.
+        </p>
+
+        <!-- Abas para Mobile (visível apenas em telas pequenas) -->
+        <ul class="nav nav-tabs nav-fill" id="demoTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="moradores-tab" data-bs-toggle="tab" data-bs-target="#moradores-pane"
+                    type="button" role="tab" aria-controls="moradores-pane" aria-selected="true">Moradores</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="funcionarios-tab" data-bs-toggle="tab" data-bs-target="#funcionarios-pane"
+                    type="button" role="tab" aria-controls="funcionarios-pane"
+                    aria-selected="false">Funcionários</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin-pane" type="button"
+                    role="tab" aria-controls="admin-pane" aria-selected="false">Gestores</button>
+            </li>
+        </ul>
+
+        <!-- Conteúdo das Abas para Mobile (visível apenas em telas pequenas) -->
+        <div class="tab-content" id="demoTabContent">
+            <div class="tab-pane fade show active" id="moradores-pane" role="tabpanel">
+                <img src="../../assets/images/collaborators.png" alt="Tela do sistema para moradores"
+                    class="img-fluid mx-auto d-block" style="max-width: 80%;">
+            </div>
+            <div class="tab-pane fade" id="funcionarios-pane" role="tabpanel">
+                <img src="../../assets/images/collaborators.png" alt="Tela do sistema para funcionários"
+                    class="img-fluid mx-auto d-block" style="max-width: 80%;">
+            </div>
+            <div class="tab-pane fade" id="admin-pane" role="tabpanel">
+                <img src="../../assets/images/collaborators.png" alt="Tela do sistema para administração"
+                    class="img-fluid mx-auto d-block" style="max-width: 80%;">
+            </div>
+        </div>
+    </div>
+</section>

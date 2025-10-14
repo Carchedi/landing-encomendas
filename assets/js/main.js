@@ -47,4 +47,30 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   cards.forEach((card) => observer.observe(card));
+
+  // -------------------
+  // Acordeão Horizontal (Demonstração)
+  const accordionItems = document.querySelectorAll(
+    ".vertical-accordion .accordion-item"
+  );
+
+  if (accordionItems.length > 0) {
+    // Deixa o primeiro item ativo por padrão
+    accordionItems[0].classList.add("active");
+
+    accordionItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        // Se o item clicado já estiver ativo, não faz nada.
+        if (item.classList.contains("active")) {
+          return;
+        }
+        // Remove a classe 'active' de todos os outros itens
+        accordionItems.forEach((otherItem) =>
+          otherItem.classList.remove("active")
+        );
+        // Adiciona a classe 'active' ao item clicado
+        item.classList.add("active");
+      });
+    });
+  }
 });

@@ -1,0 +1,59 @@
+#demonstracao {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url(../../assets/images/bg_general.png);
+  background-size: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-section {
+  background: #f8f9fa;
+  padding: 5rem 1rem;
+}
+
+/* Cores personalizadas */
+.bg-purple {
+  background-color: #6f42c1 !important;
+}
+
+/* Estilo das abas */
+.nav-tabs .nav-link {
+  color: #495057;
+  background: #e2e2e2;
+}
+
+.nav-tabs .nav-link.active {
+  color: #000;
+  font-weight: 600;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+/* Ajusta a cor da aba ativa para cada perfil */
+#moradores-tab.active {
+  background: #198754;
+  color: #fff;
+}
+#funcionarios-tab.active {
+  background: #6f42c1;
+  color: #fff;
+}
+#admin-tab.active {
+  background: #6c757d;
+  color: #ffffff;
+}
+
+.tab-pane {
+  border: 1px solid #dee2e6;
+  border-top: none;
+  padding: 2rem 1rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: #fff;
+}
+
+#demoTabContent {
+  margin-top: -1px; /* Alinha a borda do painel com a borda da aba */
+}

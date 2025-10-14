@@ -9,6 +9,7 @@ import "./styles/funcionalidades.css";
 import "./styles/sobre.css";
 import "./styles/modais.css";
 import "./styles/footer.css";
+import "./styles/demonstracao.css";
 
 // =======================
 // HTML (componentes)
@@ -21,6 +22,7 @@ import footer from "./components/footer.html?raw";
 import modalMoradores from "./components/modals/modalMoradores.html?raw";
 import modalFuncionarios from "./components/modals/modalFuncionarios.html?raw"; // Certifique-se que este é o novo arquivo para modal 2
 import modalAdminstracao from "./components/modals/modalAdministracao.html?raw";
+import demonstracao from "./components/demonstracao.html?raw";
 
 // Renderizar no DOM
 document.querySelector("#app").innerHTML = `
@@ -28,6 +30,7 @@ document.querySelector("#app").innerHTML = `
   ${hero}
   ${sobre}
   ${funcionalidades}
+  ${demonstracao}
   ${footer}
 `;
 
@@ -44,3 +47,4 @@ import "./js/funcionalidades.js";
 import "./js/animations.js";
 import "./js/sobre.js";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // inclui JS necessário para modais, tooltips etc
+import "./js/demonstracao.js";
