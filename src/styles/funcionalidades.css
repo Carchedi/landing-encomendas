@@ -118,7 +118,7 @@ body {
 }
 
 /* MOBILE E TABLET */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .accordion-wrapper {
     flex-direction: column;
     height: auto;
@@ -160,4 +160,41 @@ body {
     max-height: none;
     margin-top: 0.5rem;
   }
+}
+
+/* Estilos para o container da barra de progresso */
+.accordion-item .progress-bar-container {
+  position: absolute; /* Posiciona a barra em relação ao item do acordeão */
+  bottom: 0; /* Alinha na parte inferior */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Ocupa toda a largura do item */
+  height: 6px; /* Altura da barra de progresso */
+  background-color: rgba(
+    167,
+    54,
+    54,
+    0.1
+  ); /* Cor de fundo da trilha da barra (transparente) */
+  overflow: hidden; /* Garante que a barra de preenchimento não vaze */
+  opacity: 0; /* Inicialmente invisível */
+  transition: opacity 0.3s ease-in-out; /* Transição suave para aparecer/desaparecer */
+}
+
+/* Estilos para a barra de preenchimento */
+.accordion-item .progress-bar {
+  height: 100%; /* Ocupa toda a altura do container */
+  width: 0%; /* Começa com 0% de largura */
+  background-color: #007bff; /* Cor de preenchimento da barra (azul Bootstrap) */
+  /* A transição de largura será aplicada apenas quando a classe 'active' estiver presente */
+  transition: width 0s linear; /* Garante que a largura resete instantaneamente quando a classe 'active' é removida */
+}
+
+/* Estilos quando o item do acordeão está ativo */
+.accordion-item.active .progress-bar-container {
+  opacity: 1; /* Torna o container da barra visível */
+}
+
+.accordion-item.active .progress-bar {
+  width: 100%; /* Preenche a barra até 100% */
+  transition: width 5s linear; /* Anima a largura de 0% a 100% em 5 segundos (correspondendo ao intervalo do JS) */
 }
