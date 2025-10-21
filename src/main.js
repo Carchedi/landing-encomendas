@@ -32,7 +32,6 @@ document.querySelector("#app").innerHTML = `
   ${hero}
   ${sobre}
   ${funcionalidades}
-  ${demonstracao}
   ${contato}
   ${footer}
 `;

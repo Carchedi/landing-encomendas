@@ -1,11 +1,20 @@
 #contato {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.3)
-    ),
-    url(../../assets/images/bg_general.png);
-  background-size: 300px;
+  /* A seção agora cuida do fundo e do espaçamento geral */
+  padding: 6rem 1rem;
+  /* Comportamento */
   position: relative;
   overflow: hidden;
+}
+
+/* O container dentro de #contato vira o "card" */
+#contato .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  box-shadow: rgba(0, 0, 0, 0.39) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  position: relative;
+  z-index: 2;
 }

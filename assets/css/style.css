@@ -23,7 +23,7 @@
 }
 
 .hero::after {
-  background-image: url("../img/bg09.png");
+  background-image: url("../img/bg09.jpg");
   animation: swap2 12s infinite;
   opacity: 0;
 }

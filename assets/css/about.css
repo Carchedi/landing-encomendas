@@ -1,11 +1,6 @@
 /* ------------------- */
 /* Seção com background animado */
-#sobre {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.7)
-    ),
-    url("../img/bg_general.png");
+#sobre { 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

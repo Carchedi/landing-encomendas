@@ -2,30 +2,9 @@
    Seção Sobre
 ========================== */
 #sobre {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.3)
-    ),
-    url(../../assets/images/bg_general.png);
   background-size: 300px;
   position: relative;
   overflow: hidden;
-}
-
-/* Background animado */
-#sobre::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.05);
-  background-size: 50% 50%;
-  animation: move-bg 25s linear infinite;
-  pointer-events: none;
-  z-index: 1;
 }
 
 @keyframes move-bg {

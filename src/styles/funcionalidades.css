@@ -1,24 +1,12 @@
 #funcionalidades {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.3)
-    ),
-    url(../../assets/images/bg_general.png);
-  background-size: 300px;
   position: relative;
   overflow: hidden;
+  padding-top: 0%;
 }
 
-.section.funcionalidades {
-  position: relative;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.7)
-    ),
-    url("../../assets/images/bg_general.png");
-  color: #222;
-  padding: 6rem 1rem;
+.section.funcionalidades { 
+  color: #222; /* Reduzindo o padding inferior de 6rem para 3rem para diminuir o espaço */
+  padding: 6rem 1rem 3rem;
   text-align: center;
   overflow: hidden;
   font-family: "Segoe UI", Roboto, sans-serif;

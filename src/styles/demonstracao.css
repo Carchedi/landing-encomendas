@@ -1,11 +1,4 @@
 #demonstracao {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.3)
-    ),
-    url(../../assets/images/bg_general.png);
-  background-size: 300px;
   position: relative;
   overflow: hidden;
 }
@@ -55,7 +48,9 @@
 }
 
 #demoTabContent {
-  margin-top: -1px; /* Alinha a borda do painel com a borda da aba */
+  margin-top: -1px;
+  box-shadow: rgba(0, 0, 0, 0.39) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 /* Container com rolagem para a demonstração dos moradores */
