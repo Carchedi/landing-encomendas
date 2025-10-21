@@ -1,18 +1,10 @@
-body {
-  /* Imagem de fundo que será usada em todo o site */
+#app {
   background-image: linear-gradient(
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.3)
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
     ),
     url("../../public/assets/images/bg_general.png");
-
-  /* Garante que a imagem de fundo fique fixa durante a rolagem */
-  background-attachment: fixed;
-
-  /* Define o tamanho do padrão e permite que ele se repita */
-  background-size: 300px;
-  background-repeat: repeat;
+  background-size: 350px;
 }
 
 .hero {

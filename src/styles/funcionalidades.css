@@ -4,7 +4,7 @@
   padding-top: 0%;
 }
 
-.section.funcionalidades { 
+.section.funcionalidades {
   color: #222; /* Reduzindo o padding inferior de 6rem para 3rem para diminuir o espaço */
   padding: 6rem 1rem 3rem;
   text-align: center;
