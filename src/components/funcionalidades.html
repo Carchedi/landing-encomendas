@@ -1,70 +1,56 @@
-<section id="funcionalidades" class="section is-medium funcionalidades">
+<section id="funcionalidades" class="section">
   <div class="container">
-    <h2 class="title is-2 has-text-centered">Como o sistema transforma o dia a dia do condomínio</h2>
-    <p class="subtitle is-4 has-text-centered mb-6">
+    <h2 class="title has-text-centered">
+      Como o sistema transforma o dia a dia do condomínio
+    </h2>
+    <p class="subtitle has-text-centered">
       Benefícios claros para todos os envolvidos.
     </p>
 
-    <div class="slideshow-wrapper">
-      <div class="slides">
-        <div class="slide">
-          <div class="image-container">
-            <img src="/assets/images/bg_a.jpg" alt="Slide 1" class="image">
-          </div>
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title slideTitle">Para Moradores</div>
-              <div class="text">
-                <p>Receba notificações instantâneas e acompanhe suas encomendas.</p>
-              </div>
-              <a href="#" class="button is-dark is-medium" data-bs-toggle="modal" data-bs-target="#modal1">Saiba
-                Mais</a>
-            </div>
-          </div>
-        </div>
+    <div class="accordion-wrapper">
 
-        <div class="slide">
-          <div class="image-container">
-            <img src="/assets/images/bg_b.jpg" alt="Slide 2" class="image">
-          </div>
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title slideTitle">Para Funcionários</div>
-              <div class="text">
-                <p>Registre entregas rapidamente e organize o armazenamento.</p>
-              </div>
-              <a href="#" class="button is-dark is-medium" data-bs-toggle="modal" data-bs-target="#modal2">Saiba
-                Mais</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide">
-          <div class="image-container">
-            <img src="/assets/images/bg_c.png" alt="Slide 3" class="image">
-          </div>
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title slideTitle">Para Gestores</div>
-              <div class="text">
-                <p>Tenha acesso a relatórios detalhados e métricas de desempenho.</p>
-              </div>
-              <a href="#" class="button is-dark is-medium" data-bs-toggle="modal" data-bs-target="#modal3">Saiba
-                Mais</a>
-            </div>
+      <div class="accordion-item active" id="moradores-item" data-tab="moradores">
+        <div class="item-background"></div>
+        <div class="item-content">
+          <div class="item-title">Para Moradores</div>
+          <div class="item-details">
+            <p>
+              Receba notificações instantâneas e acompanhe suas encomendas diretamente pelo app.
+              Tenha controle e segurança na palma da mão.
+            </p>
+            <a href="#" class="button is-dark" data-bs-toggle="modal" data-bs-target="#modal1">Saiba Mais</a>
           </div>
         </div>
       </div>
 
-      <div class="arrows">
-        <div class="arrow prev aPrev"><i class="fa fa-caret-left"></i></div>
-        <div class="arrow next aNext"><i class="fa fa-caret-right"></i></div>
+      <div class="accordion-item" id="funcionarios-item" data-tab="funcionarios">
+        <div class="item-background"></div>
+        <div class="item-content">
+          <div class="item-title">Para Funcionários</div>
+          <div class="item-details">
+            <p>
+              Registre entregas rapidamente e organize o armazenamento de pacotes com um sistema simples e intuitivo.
+              Reduza erros e o tempo de triagem.
+            </p>
+            <a href="#" class="button is-dark" data-bs-toggle="modal" data-bs-target="#modal2">Saiba Mais</a>
+          </div>
+        </div>
       </div>
 
-      <div class="pagination"></div>
-      <div class="progress-bar">
-        <div class="progress-bar-inner"></div>
+      <div class="accordion-item" id="gestores-item" data-tab="gestores">
+        <div class="item-background"></div>
+        <div class="item-content">
+          <div class="item-title">Para Gestores</div>
+          <div class="item-details">
+            <p>
+              Tenha acesso a relatórios detalhados, métricas de desempenho e controle total sobre o fluxo de trabalho.
+              Otimize a administração com dados precisos.
+            </p>
+            <a href="#" class="button is-dark" data-bs-toggle="modal" data-bs-target="#modal3">Saiba Mais</a>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
