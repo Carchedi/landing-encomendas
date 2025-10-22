@@ -49,18 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   accordionItems.forEach((item, index) => {
     item.addEventListener("click", () => {
-      // If the clicked item is already active, do nothing.
-      // This prevents it from collapsing when clicked again.
-      if (item.classList.contains("active")) {
-        // Se estiver no desktop, apenas reinicia o timer
-        if (window.innerWidth > DESKTOP_BREAKPOINT) {
-          resetCarousel();
-        }
-        return;
+      const isMobile = window.innerWidth <= DESKTOP_BREAKPOINT;
+      const isActive = item.classList.contains("active");
+
+      // Se o item já estiver ativo (em qualquer dispositivo), não faz nada.
+      if (isActive) {
+        if (!isMobile) resetCarousel(); // No desktop, apenas reinicia o timer
+        return; // Sai da função
       }
 
       activateItem(index);
-      resetCarousel();
+      if (!isMobile) resetCarousel();
     });
   });
 
@@ -74,8 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
     resetCarousel();
   });
 
-  // Inicia e gerencia o carrossel com base no tamanho da tela
-  activateItem(0); // Garante que o primeiro item comece ativo
+  // Inicia o componente
+  // No desktop, o primeiro item começa ativo. No mobile, todos começam fechados.
+  if (window.innerWidth > DESKTOP_BREAKPOINT) {
+    activateItem(0);
+  }
   startCarousel();
   window.addEventListener("resize", startCarousel); // Adapta ao redimensionar a janela
 });
