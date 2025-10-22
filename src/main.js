@@ -47,4 +47,5 @@ import "./js/funcionalidades.js";
 import "./js/animations.js";
 import "./js/sobre.js";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // inclui JS necessário para modais, tooltips etc
+import "./js/modal-pagination.js";
 import "./js/contato.js";

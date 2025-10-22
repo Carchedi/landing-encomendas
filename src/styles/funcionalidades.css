@@ -1,3 +1,8 @@
+/* Classe para ocultar elementos */
+.hidden {
+  display: none !important;
+}
+
 /* ---------- BASE ---------- */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
@@ -227,4 +232,37 @@ body {
 .accordion-item.active .progress-bar {
   width: 100%; /* Preenche a barra até 100% */
   transition: width 5s linear; /* Anima a largura de 0% a 100% em 5 segundos (correspondendo ao intervalo do JS) */
+}
+
+/* ===== Indicadores (pontos de paginação) ===== */
+.page-indicator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.2rem;
+}
+
+/* Pontinhos */
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #bbb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+/* Pontinho ativo */
+.indicator-dot.active {
+  background-color: #007bff;
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* Hover opcional */
+.indicator-dot:hover {
+  background-color: #0056b3;
+  opacity: 1;
 }
