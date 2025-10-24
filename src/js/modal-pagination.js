@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const indicatorContainer = modalElement.querySelector(
       ".page-indicator-container"
     );
+    const contentContainer = modalElement.querySelector(".content-container");
     let currentPageIndex = 0;
 
     // === Cria os indicadores em forma de pontos ===
@@ -43,6 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       currentPageIndex = index;
       updateButtons();
+
+      // Rola o conteúdo para o topo ao mudar de página
+      if (contentContainer) {
+        contentContainer.scrollTo({ top: 0, behavior: "smooth" });
+      }
     };
 
     // === Eventos dos botões ===
