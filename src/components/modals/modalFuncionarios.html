@@ -1,15 +1,23 @@
 <!-- Modal 2: Para Funcionários -->
 <div class="modal fade modal-paginated" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal2Label">Para Funcionários</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        <div class="modal-content" style="display: flex; flex-direction: column; height: 85vh; max-height: 700px;">
+            <!-- Metade Superior: Imagem -->
+            <div class="modal-top-image" style="
+                    flex: 1;
+                    background-image: url('/assets/images/bg_b.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    position: relative;
+                    border-top-left-radius: var(--bs-modal-border-radius);
+                    border-top-right-radius: var(--bs-modal-border-radius);">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"
+                    style="position: absolute; top: 1rem; right: 1rem;"></button>
             </div>
-
-            <div class="modal-body">
-                <div class="content-container">
+            <!-- Metade Inferior: Conteúdo -->
+            <div class="modal-body" style="flex: 1; display: flex; flex-direction: column; padding: 1.5rem;">
+                <div class="content-container"
+                    style="flex: 1; overflow-y: auto; padding-right: 1rem; margin-right: -1rem;">
                     <div class="page-content">
                         <h5>Visão Geral</h5>
                         <p>O sistema apresenta uma visão <strong>organizada e imediata</strong> de todas as encomendas
@@ -63,7 +71,8 @@
                     </div>
                 </div>
 
-                <div class="modal-footer flex justify-content-between items-center">
+                <div class="modal-footer flex justify-content-between items-center"
+                    style="border-top: none; padding-top: 1rem; padding-bottom: 0;">
                     <button type="button" class="btn btn-primary rounded-pill prev-btn me-auto">
                         <i class="fa fa-chevron-left" aria-hidden="true"></i>
                     </button>
@@ -72,7 +81,7 @@
                     </button>
                 </div>
 
-                <div class="page-indicator-container mt-2"></div>
+                <div class="page-indicator-container mt-3"></div>
             </div>
         </div>
     </div>
