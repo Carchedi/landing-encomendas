@@ -1,9 +1,9 @@
 #contato {
-  /* A seção agora cuida do fundo e do espaçamento geral */
-  padding: 6rem 1rem;
   /* Comportamento */
   position: relative;
   overflow: hidden;
+  padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 /* O container dentro de #contato vira o "card" */
