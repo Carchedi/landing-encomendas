@@ -72,13 +72,13 @@ body {
 }
 
 #moradores-item .item-background {
-  background-image: url("/assets/images/bg_a.jpg");
+  background-image: url("/landing-encomendas/assets/images/bg_a.jpg");
 }
 #funcionarios-item .item-background {
-  background-image: url("/assets/images/bg_b.jpg");
+  background-image: url("/landing-encomendas/assets/images/bg_b.jpg");
 }
 #gestores-item .item-background {
-  background-image: url("/assets/images/bg_c.png");
+  background-image: url("/landing-encomendas/assets/images/bg_c.png");
 }
 
 .item-content {
