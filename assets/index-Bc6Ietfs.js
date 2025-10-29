@@ -275,7 +275,7 @@
             <!-- Metade Superior: Imagem -->
             <div class="modal-top-image" style="
                     flex: 1;
-                    background-image: url('/assets/images/bg_a.jpg');
+                    background-image: url('/landing-encomendas/assets/images/bg_a.jpg');
                     background-size: cover;
                     background-position: center;
                     position: relative;
@@ -358,7 +358,7 @@
             <!-- Metade Superior: Imagem -->
             <div class="modal-top-image" style="
                     flex: 1;
-                    background-image: url('/assets/images/bg_b.jpg');
+                    background-image: url('/landing-encomendas/assets/images/bg_b.jpg');
                     background-size: cover;
                     background-position: center;
                     position: relative;
@@ -445,7 +445,7 @@
             <!-- Metade Superior: Imagem -->
             <div class="modal-top-image" style="
                     flex: 1;
-                    background-image: url('/assets/images/bg_c.png');
+                    background-image: url('/landing-encomendas/assets/images/bg_c.png');
                     background-size: cover;
                     background-position: center;
                     position: relative;
