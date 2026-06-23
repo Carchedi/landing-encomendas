@@ -208,7 +208,7 @@
                         <h4 class="timeline-card-title">Notificação imediata</h4>
                         <div class="timeline-card-content">
                             <p>Quando uma encomenda é registrada no sistema, o morador da unidade
-                                é notificado instantaneamente via email e WhatsApp.</p>
+                                é notificado instantaneamente via WhatsApp.</p>
                         </div>
                         <button class="timeline-card-toggle">+</button>
                     </div>
