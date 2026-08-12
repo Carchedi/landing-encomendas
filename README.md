@@ -28,8 +28,8 @@ A landing page foi criada para **divulgação** e **documentação** do sistema,
 - **HTML5**
 - **CSS3**
 - **Bootstrap 5**
-- **Font Awesome**
 - **JavaScript**
+- **Font Awesome**
 
 ---
 

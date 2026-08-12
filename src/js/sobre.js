@@ -1,31 +1,18 @@
-// sobre.js
+// Animação dos cards desktop
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card-moderno");
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.add("visible");
+    }, index * 200);
+  });
 
-  function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-      rect.top <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.bottom >= 0
-    );
-  }
-
-  function checkCards() {
-    let delay = 0;
-    const delayStep = 150;
-
-    cards.forEach((card) => {
-      if (isInViewport(card) && !card.classList.contains("visible")) {
-        setTimeout(() => {
-          card.classList.add("visible");
-        }, delay);
-        delay += delayStep;
-      }
+  // Acordeão mobile
+  const items = document.querySelectorAll(".accordion-item");
+  items.forEach((item) => {
+    const header = item.querySelector(".accordion-header");
+    header.addEventListener("click", () => {
+      item.classList.toggle("active");
     });
-  }
-
-  checkCards();
-  window.addEventListener("scroll", checkCards);
-  window.addEventListener("resize", checkCards);
+  });
 });

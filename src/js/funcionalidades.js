@@ -1,83 +1,86 @@
+import "./carrossel.js";
+
+// Dados dos cards e modais
+const cardsData = [
+  {
+    id: "moradores",
+    title: "Para Moradores",
+    contentCard:
+      "Receba notificações instantâneas, agende retiradas e acompanhe o histórico das suas encomendas com total transparência.",
+    contentModal:
+      "Moradores recebem notificações automáticas, agendam retiradas e acompanham o histórico de forma simples e segura.",
+  },
+  {
+    id: "funcionarios",
+    title: "Para Funcionários",
+    contentCard:
+      "Registre entregas rapidamente, notifique moradores automaticamente e organize o armazenamento com eficiência.",
+    contentModal:
+      "Funcionários registram encomendas com leitura de código de barras, notificam moradores e gerenciam o armazenamento.",
+  },
+  {
+    id: "admins",
+    title: "Para Administradores",
+    contentCard:
+      "Tenha acesso a relatórios detalhados, controle total de acessos e métricas completas de desempenho do sistema.",
+    contentModal:
+      "Administradores acompanham relatórios detalhados e métricas de desempenho em um painel inteligente.",
+  },
+];
+
 document.addEventListener("DOMContentLoaded", () => {
-  const accordionWrapper = document.querySelector(".accordion-wrapper");
-  const accordionItems = document.querySelectorAll(".accordion-item");
+  const swiperWrapper = document.querySelector(".mySwiper .swiper-wrapper");
+  const modalsContainer = document.getElementById("modals-container");
 
-  if (!accordionWrapper || accordionItems.length === 0) {
-    return; // Sai se os elementos não forem encontrados
-  }
+  // Gerar slides e modais dinamicamente
+  cardsData.forEach(({ id, title, contentCard, contentModal }) => {
+    // Slide
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide";
+    slide.innerHTML = `
+      <div class="card">
+        <div class="card-content has-text-centered">
+          <h3 class="title is-4">${title}</h3>
+          <p>${contentCard}</p>
+          <button class="button is-link mt-3" data-target="modal-${id}">Saiba mais</button>
+        </div>
+      </div>
+    `;
+    swiperWrapper.appendChild(slide);
 
-  let currentIndex = 0;
-  let carouselInterval;
-  const DESKTOP_BREAKPOINT = 768; // Alinhado com o CSS
+    // Modal
+    const modal = document.createElement("div");
+    modal.id = `modal-${id}`;
+    modal.className = "modal";
+    modal.innerHTML = `
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">${title}</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">${contentModal}</section>
+      </div>
+    `;
+    modalsContainer.appendChild(modal);
+  });
 
-  const activateItem = (index) => {
-    // Remove a classe 'active' de todos para parar animações
-    accordionItems.forEach((item) => {
-      item.classList.remove("active");
-    });
+  // Abrir modais
+  const buttons = document.querySelectorAll(".button[data-target]");
+  const modals = document.querySelectorAll(".modal");
 
-    // Força o navegador a refazer o layout, essencial para reiniciar a animação CSS
-    // ao readicionar a classe 'active' logo em seguida.
-    void accordionItems[index].offsetWidth;
-
-    // Ativa o item correto
-    accordionItems[index].classList.add("active");
-    currentIndex = index; // Atualiza o índice atual
-  };
-
-  const scheduleNext = () => {
-    const nextIndex = (currentIndex + 1) % accordionItems.length;
-    activateItem(nextIndex);
-  };
-
-  const startCarousel = () => {
-    // Limpa qualquer intervalo anterior para evitar múltiplos timers
-    clearInterval(carouselInterval);
-
-    // Inicia o carrossel apenas em telas maiores que o breakpoint
-    if (window.innerWidth > DESKTOP_BREAKPOINT) {
-      // A primeira transição acontece após 5s, e as seguintes também.
-      // Isso garante que o primeiro item fique visível pelo tempo correto.
-      carouselInterval = setInterval(scheduleNext, 5000); // 5 segundos
-    }
-  };
-
-  const resetCarousel = () => {
-    clearInterval(carouselInterval);
-    startCarousel();
-  };
-
-  accordionItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      const isMobile = window.innerWidth <= DESKTOP_BREAKPOINT;
-      const isActive = item.classList.contains("active");
-
-      // Se o item já estiver ativo (em qualquer dispositivo), não faz nada.
-      if (isActive) {
-        if (!isMobile) resetCarousel(); // No desktop, apenas reinicia o timer
-        return; // Sai da função
-      }
-
-      activateItem(index);
-      if (!isMobile) resetCarousel();
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const modal = document.getElementById(btn.dataset.target);
+      if (modal) modal.classList.add("is-active");
     });
   });
 
-  // Pausa o carrossel ao passar o mouse sobre o wrapper
-  accordionWrapper.addEventListener("mouseenter", () => {
-    clearInterval(carouselInterval);
+  // Fechar modais
+  modals.forEach((modal) => {
+    const closeEls = modal.querySelectorAll(".delete, .modal-background");
+    closeEls.forEach((el) =>
+      el.addEventListener("click", () => modal.classList.remove("is-active"))
+    );
   });
-
-  // Retoma o carrossel ao retirar o mouse
-  accordionWrapper.addEventListener("mouseleave", () => {
-    resetCarousel();
-  });
-
-  // Inicia o componente
-  // No desktop, o primeiro item começa ativo. No mobile, todos começam fechados.
-  if (window.innerWidth > DESKTOP_BREAKPOINT) {
-    activateItem(0);
-  }
-  startCarousel();
-  window.addEventListener("resize", startCarousel); // Adapta ao redimensionar a janela
 });

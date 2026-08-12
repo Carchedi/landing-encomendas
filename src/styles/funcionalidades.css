@@ -1,268 +1,65 @@
-/* Classe para ocultar elementos */
-.hidden {
-  display: none !important;
-}
-
-/* ---------- BASE ---------- */
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-}
-
-.section {
-  padding: 40px 0; /* Padding padrão para todas as seções */
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.title {
-  color: #333;
-}
-
-.subtitle {
-  color: #666;
-  margin-bottom: 3rem;
-}
-
-/* ---------- ACORDEÃO ---------- */
-.accordion-wrapper {
-  display: flex;
-  height: 600px;
-  gap: 6px;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
-}
-
-.accordion-item {
-  flex: 1;
-  position: relative;
-  cursor: pointer;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.5s ease-in-out;
-  color: white;
-  background-color: #111;
-  min-height: 200px;
-}
-
-.accordion-item.active {
-  flex: 3;
-}
-
-.item-background {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
+/* Seção funcionalidades */
+#funcionalidades {
+  background-image: url("../../assets/images/bg.jpeg");
   background-position: center;
-  filter: brightness(0.7);
-  transform: scale(1);
-  transition: transform 0.8s ease, filter 0.5s ease;
-  z-index: 0;
-}
-
-.accordion-item.active .item-background {
-  transform: scale(1.3);
-  filter: brightness(0.9);
-}
-
-#moradores-item .item-background {
-  background-image: url("/landing-encomendas/assets/images/bg_a.jpg");
-}
-#funcionarios-item .item-background {
-  background-image: url("/landing-encomendas/assets/images/bg_b.jpg");
-}
-#gestores-item .item-background {
-  background-image: url("/landing-encomendas/assets/images/bg_c.png");
-}
-
-.item-content {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 60px 0;
   position: relative;
-  z-index: 1;
-  padding: 2rem;
+}
+
+/* Swiper geral */
+.swiper {
   width: 100%;
-  box-sizing: border-box;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1));
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
-.item-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.item-details {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease, opacity 0.4s ease;
-}
-
-.accordion-item.active .item-details {
-  max-height: 350px;
-  opacity: 1;
-}
-
-/* ---------- RESPONSIVIDADE ---------- */
-@media (max-width: 1024px) {
-  .accordion-wrapper {
-    height: 480px;
-  }
-  .item-title {
-    font-size: 1.5rem;
-  }
-}
-
-/* MOBILE E TABLET */
-@media (max-width: 768px) {
-  .accordion-wrapper {
-    flex-direction: column;
-    height: auto;
-    gap: 10px;
-    box-shadow: none;
-  }
-
-  .accordion-item {
-    flex: unset;
-    width: 100%;
-    height: auto;
-    min-height: 180px;
-  }
-
-  .item-background {
-    position: relative;
-    height: 180px;
-    border-radius: 10px 10px 0 0;
-    transform: scale(1);
-  }
-
-  .accordion-item.active .item-background {
-    transform: scale(1.05);
-  }
-
-  .item-content {
-    position: relative;
-    padding: 1.2rem;
-    background: rgba(0, 0, 0, 0.75);
-    border-radius: 0 0 10px 10px;
-  }
-
-  .item-title {
-    font-size: 1.4rem;
-  }
-
-  .item-details {
-    /* Reverte para o comportamento padrão (fechado) */
-    max-height: 0;
-    opacity: 0;
-    margin-top: 0.5rem;
-  }
-
-  /* Esconde a barra de progresso no mobile */
-  .accordion-item .progress-bar-container {
-    display: none;
-  }
-
-  /* Indicador visual para toque no mobile */
-  .item-content::after {
-    content: "+";
-    position: absolute;
-    bottom: 12px;
-    right: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    font-size: 20px;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  /* Esconde o indicador quando o item está ativo (aberto) */
-  .accordion-item.active .item-content::after {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-
-/* Estilos para o container da barra de progresso */
-.accordion-item .progress-bar-container {
-  position: absolute; /* Posiciona a barra em relação ao item do acordeão */
-  bottom: 0; /* Alinha na parte inferior */
-  left: 0; /* Alinha à esquerda */
-  width: 100%; /* Ocupa toda a largura do item */
-  height: 6px; /* Altura da barra de progresso */
-  background-color: rgba(
-    167,
-    54,
-    54,
-    0.1
-  ); /* Cor de fundo da trilha da barra (transparente) */
-  overflow: hidden; /* Garante que a barra de preenchimento não vaze */
-  opacity: 0; /* Inicialmente invisível */
-  transition: opacity 0.3s ease-in-out; /* Transição suave para aparecer/desaparecer */
-}
-
-/* Estilos para a barra de preenchimento */
-.accordion-item .progress-bar {
-  height: 100%; /* Ocupa toda a altura do container */
-  width: 0%; /* Começa com 0% de largura */
-  background-color: #007bff; /* Cor de preenchimento da barra (azul Bootstrap) */
-  /* A transição de largura será aplicada apenas quando a classe 'active' estiver presente */
-  transition: width 0s linear; /* Garante que a largura resete instantaneamente quando a classe 'active' é removida */
-}
-
-/* Estilos quando o item do acordeão está ativo */
-.accordion-item.active .progress-bar-container {
-  opacity: 1; /* Torna o container da barra visível */
-}
-
-.accordion-item.active .progress-bar {
-  width: 100%; /* Preenche a barra até 100% */
-  transition: width 5s linear; /* Anima a largura de 0% a 100% em 5 segundos (correspondendo ao intervalo do JS) */
-}
-
-/* ===== Indicadores (pontos de paginação) ===== */
-.page-indicator-container {
+.swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-top: 1.2rem;
+  transition: transform 0.3s; /* suavidade da escala */
 }
 
-/* Pontinhos */
-.indicator-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #bbb;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0.6;
+/* Card */
+.card {
+  width: 300px;
+  min-height: 260px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Pontinho ativo */
-.indicator-dot.active {
-  background-color: #007bff;
-  opacity: 1;
-  transform: scale(1.3);
+/* Efeito de destaque ao centralizar (opcional hover adicional) */
+.card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover opcional */
-.indicator-dot:hover {
-  background-color: #0056b3;
-  opacity: 1;
+/* Botão dentro do card */
+.card .button {
+  margin-top: 1rem;
+}
+
+/* Controles do Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #3273dc;
+}
+
+.swiper-pagination-bullet-active {
+  background: #3273dc;
+}
+
+/* Responsividade */
+@media screen and (max-width: 767px) {
+  .swiper-slide {
+    transform: scale(1); /* Mobile mostra 1 slide, sem escala lateral */
+  }
 }

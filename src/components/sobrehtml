@@ -1,0 +1,85 @@
+<section id="sobre" class="section is-medium about">
+    <div class="container">
+        <h2 class="title is-2 has-text-centered">Sobre o projeto</h2>
+        <p class="subtitle is-4 has-text-centered mb-6">
+            simplifique o recebimento, armazenamento e retirada com total transparência.
+        </p>
+
+        <!-- Versão Desktop: Cards -->
+        <div class="cards-grid is-hidden-touch">
+            <div class="card-moderno p-5 has-text-centered">
+                <h3 class="title is-4">Gestão de Encomendas</h3>
+                <p>Com o crescimento das compras online, a gestão de encomendas em condomínios exige soluções mais
+                    inteligentes, garantindo controle eficiente, segurança e comunicação clara entre portaria e
+                    moradores.</p>
+                <img src="/assets/images/encomendas.png" alt="encomendas" />
+            </div>
+
+            <div class="card-moderno p-5 has-text-centered">
+                <h3 class="title is-4">Automação Completa</h3>
+                <p>Pensando nisso, desenvolvi um sistema moderno que automatiza todo o ciclo de encomendas, do
+                    recebimento à
+                    retirada, com eficiência e transparência total.</p>
+                <img src="/assets/images/bg08.jpg" alt="encomendas" />
+            </div>
+
+            <div class="card-moderno p-5 has-text-centered">
+                <h3 class="title is-4">Experiência Intuitiva</h3>
+                <p>Mais que controle, o sistema oferece uma experiência digital intuitiva e confiável para os moradores,
+                    funcionários e administradores.</p>
+                <img src="/assets/images/morada.png" alt="encomendas" />
+            </div>
+        </div>
+
+        <!-- Versão Mobile: Acordeão -->
+        <div class="accordion-container is-hidden-desktop">
+            <!-- Item 1 -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <h3 class="title is-4 mb-0">Gestão de Encomendas</h3>
+                    <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner p-5">
+                        <p>Com o crescimento das compras online, a gestão de encomendas em condomínios exige soluções
+                            mais
+                            inteligentes, garantindo controle eficiente, segurança e comunicação clara entre portaria e
+                            moradores.
+                        </p>
+                        <img src="/assets/images/encomendas.png" alt="encomendas" />
+                    </div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3 class="title is-4 mb-0">Automação Completa</h3>
+                    <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner p-5">
+                        <p>Pensando nisso, desenvolvi um sistema moderno que automatiza todo o ciclo de encomendas, do
+                            recebimento
+                            à retirada, com eficiência e transparência total.</p>
+                        <img src="/assets/images/bg08.jpg" alt="encomendas" />
+                    </div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <h3 class="title is-4 mb-0">Experiência Intuitiva</h3>
+                    <span class="icon is-medium"><i class="fas fa-plus"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner p-5">
+                        <p>Mais que controle, o sistema oferece uma experiência digital intuitiva e confiável para os
+                            moradores,
+                            funcionários e administradores.</p>
+                        <img src="/assets/images/morada.png" alt="encomendas" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
