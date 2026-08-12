@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 
 // Configurações do servidor Vite
 export default defineConfig({
-  base: "/landing-encomendas/",
+  base: "/",
   server: {
     host: true,
     port: 5173,
